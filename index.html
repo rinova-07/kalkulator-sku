@@ -1,0 +1,4578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Kalkulator SKU">
+    <meta name="theme-color" content="#0f766e">
+    <link rel="apple-touch-icon" href="https://muse.ai/files/1408806072308155/1657979405591088/s6bdtwr0vhg10qk8f7xs3fzw/app-icon.png">
+    <link rel="icon" type="image/png" href="https://muse.ai/files/1408806072308155/1657979405591088/s6bdtwr0vhg10qk8f7xs3fzw/app-icon.png">
+    <title>Kalkulator SKU — Gaya JNE</title>
+    <style>
+/* --- Root Variables: Gaya Material You (Light & Dark) --- */
+:root {
+    --font-family: 'Roboto', sans-serif;
+    --statusbar-gap: 18px;
+    --statusbar-top: 0px;
+    --navbar-bottom: 0px;
+    
+    /* Light Mode (default) — Tema JNE: biru #1D4FB8, merah #E63329 */
+    --md-sys-color-primary: #1d4fb8;
+    --md-sys-color-on-primary: #ffffff;
+    --md-sys-color-primary-container: #e8effc;
+    --md-sys-color-on-primary-container: #123a8c;
+    
+    --md-sys-color-secondary: #e63329;
+    --md-sys-color-on-secondary: #ffffff;
+    
+    --md-sys-color-surface: #ffffff;
+    --md-sys-color-on-surface: #16233b;
+    --md-sys-color-surface-container: #f4f7fc;
+    --md-sys-color-surface-container-high: #e8effc;
+    --md-sys-color-surface-variant: #e8effc;
+    --md-sys-color-on-surface-variant: #6b7686;
+    --md-sys-color-outline: #e1e6ee;
+    --md-sys-color-outline-variant: #b9c4d6;
+    
+    --md-sys-color-background: #eef1f6;
+    --md-sys-color-on-background: #16233b;
+    
+    --md-sys-color-success: #1f9d55;
+    --md-sys-color-error: #e63329;
+    --md-sys-color-on-error: #ffffff;
+    
+    --md-sys-elevation-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --md-sys-elevation-3: 0 4px 6px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+}
+
+/* --- Dark Mode Variables --- */
+body.dark-mode {
+    --md-sys-color-primary: #7fa8f5;
+    --md-sys-color-on-primary: #0b1e42;
+    --md-sys-color-primary-container: #1d3e7a;
+    --md-sys-color-on-primary-container: #dce9ff;
+    
+    --md-sys-color-secondary: #ff8a80;
+    --md-sys-color-on-secondary: #3d0b08;
+    
+    --md-sys-color-surface: #131c2e;
+    --md-sys-color-on-surface: #eaf0fa;
+    --md-sys-color-surface-container: #1b2740;
+    --md-sys-color-surface-container-high: #223354;
+    --md-sys-color-surface-variant: #223354;
+    --md-sys-color-on-surface-variant: #a9b7ce;
+    --md-sys-color-outline: #33456b;
+    --md-sys-color-outline-variant: #46587e;
+    
+    --md-sys-color-background: #0c1424;
+    --md-sys-color-on-background: #eaf0fa;
+    
+    --md-sys-color-success: #3ecf7a;
+    --md-sys-color-error: #ff7a70;
+    --md-sys-color-on-error: #3d0b08;
+    
+    --md-sys-elevation-1: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.8);
+    --md-sys-elevation-3: 0 4px 8px rgba(0,0,0,0.3), 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* --- Preset Tema Warna --- */
+body[data-theme="blue"] {
+    --md-sys-color-primary: #0061a4;
+    --md-sys-color-primary-container: #d1e4ff;
+    --md-sys-color-on-primary-container: #001d36;
+}
+body.dark-mode[data-theme="blue"] {
+    --md-sys-color-primary: #9ecca0;
+    --md-sys-color-primary-container: #00497d;
+    --md-sys-color-on-primary-container: #d1e4ff;
+}
+
+body[data-theme="emerald"] {
+    --md-sys-color-primary: #006e4c;
+    --md-sys-color-primary-container: #83f8c7;
+    --md-sys-color-on-primary-container: #002114;
+}
+body.dark-mode[data-theme="emerald"] {
+    --md-sys-color-primary: #66dbac;
+    --md-sys-color-primary-container: #005238;
+    --md-sys-color-on-primary-container: #83f8c7;
+}
+
+body[data-theme="rose"] {
+    --md-sys-color-primary: #984061;
+    --md-sys-color-primary-container: #ffd9e2;
+    --md-sys-color-on-primary-container: #3e001d;
+}
+body.dark-mode[data-theme="rose"] {
+    --md-sys-color-primary: #ffb1c7;
+    --md-sys-color-primary-container: #7b2949;
+    --md-sys-color-on-primary-container: #ffd9e2;
+}
+
+body[data-theme="ungu"] {
+    --md-sys-color-primary: #6750a4;
+    --md-sys-color-primary-container: #e8def8;
+    --md-sys-color-on-primary-container: #1d192b;
+}
+body.dark-mode[data-theme="ungu"] {
+    --md-sys-color-primary: #d0bcff;
+    --md-sys-color-primary-container: #4f378b;
+    --md-sys-color-on-primary-container: #e8def8;
+}
+
+body[data-theme="oranye"] {
+    --md-sys-color-primary: #ef6c00;
+    --md-sys-color-primary-container: #ffe0b2;
+    --md-sys-color-on-primary-container: #4e2600;
+}
+body.dark-mode[data-theme="oranye"] {
+    --md-sys-color-primary: #ffb74d;
+    --md-sys-color-primary-container: #7a3d00;
+    --md-sys-color-on-primary-container: #ffe0b2;
+}
+
+body[data-theme="toska"] {
+    --md-sys-color-primary: #00838f;
+    --md-sys-color-primary-container: #b2ebf2;
+    --md-sys-color-on-primary-container: #00363a;
+}
+body.dark-mode[data-theme="toska"] {
+    --md-sys-color-primary: #4dd0e1;
+    --md-sys-color-primary-container: #00565e;
+    --md-sys-color-on-primary-container: #b2ebf2;
+}
+
+body[data-theme="merah"] {
+    --md-sys-color-primary: #c62828;
+    --md-sys-color-primary-container: #ffcdd2;
+    --md-sys-color-on-primary-container: #4d0000;
+}
+body.dark-mode[data-theme="merah"] {
+    --md-sys-color-primary: #ef9a9a;
+    --md-sys-color-primary-container: #7f1d1d;
+    --md-sys-color-on-primary-container: #ffcdd2;
+}
+
+body[data-theme="cokelat"] {
+    --md-sys-color-primary: #6d4c41;
+    --md-sys-color-primary-container: #d7ccc8;
+    --md-sys-color-on-primary-container: #271410;
+}
+body.dark-mode[data-theme="cokelat"] {
+    --md-sys-color-primary: #bcaaa4;
+    --md-sys-color-primary-container: #4e342e;
+    --md-sys-color-on-primary-container: #d7ccc8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.mobile-container {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--md-sys-color-background);
+    height: 100vh;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--md-sys-elevation-3);
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.mobile-container.swipe-aktif {
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.mobile-container input,
+.mobile-container textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+/* --- Pengaturan Sistem Tab Konten --- */
+.tab-content {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 0 120px 0;
+    animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content.anim-dari-kanan {
+    animation: swipeMasukDariKanan 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.tab-content.anim-dari-kiri {
+    animation: swipeMasukDariKiri 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes swipeMasukDariKanan {
+    from { opacity: 0; transform: translateX(26px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes swipeMasukDariKiri {
+    from { opacity: 0; transform: translateX(-26px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Header --- */
+.header-bg {
+    background: linear-gradient(135deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-on-primary-container) 100%);
+    padding: calc(var(--statusbar-top) + var(--statusbar-gap)) 20px 20px 20px !important;
+    border-bottom-left-radius: 28px !important;
+    border-bottom-right-radius: 28px !important;
+    flex-shrink: 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+body.dark-mode .header-bg {
+    background: linear-gradient(135deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-background) 130%);
+}
+
+.header-top-new {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-btn {
+    background-color: var(--md-sys-color-surface);
+    border: 1px solid var(--md-sys-color-outline);
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--md-sys-elevation-1);
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.icon-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--md-sys-color-surface-variant);
+}
+.icon-btn:active {
+    transform: scale(0.95);
+}
+.icon-btn span {
+    font-size: 22px;
+}
+
+.icon-btn .icon-svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    pointer-events: none;
+}
+
+.title-outline-new {
+    font-family: 'RobotoLocal', 'Roboto', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    font-style: normal;
+    color: #ffffff;
+    border: 2.5px solid #ffffff;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.10);
+    padding: 7px 22px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.2s ease;
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+.title-outline-new.mode-berjalan {
+    overflow: hidden;
+}
+
+.title-outline-new:active {
+    transform: scale(0.96);
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Kartu Tab 1 (Kalkulator SKU) --- */
+.booking-card {
+    background: var(--md-sys-color-surface);
+    border-top-left-radius: 24px !important;
+    border-top-right-radius: 24px !important;
+    border-bottom-left-radius: 24px !important;
+    border-bottom-right-radius: 24px !important;
+    margin-top: 0px !important;
+    margin: 0px 16px 16px 16px !important;
+    padding: 22px 18px 16px 18px !important;
+    position: relative;
+    z-index: 10;
+    box-shadow: var(--md-sys-elevation-3);
+    border: 2px solid transparent;
+}
+
+/* --- Kartu Tab 2 (Kalkulator Dus Presisi) --- */
+#tabEksplor .booking-card {
+    margin-top: 0px !important;
+    border-top-left-radius: 24px !important;
+    border-top-right-radius: 24px !important;
+    border-bottom-left-radius: 24px !important;
+    border-bottom-right-radius: 24px !important;
+    padding-top: 24px !important;
+    padding-bottom: 20px !important;
+}
+
+/* Style Khusus Tampilan Tab Kosongan */
+.empty-tab-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+    gap: 12px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.empty-icon {
+    font-size: 48px;
+    color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-primary-container);
+    padding: 16px;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.empty-tab-card h3 {
+    font-size: 18px;
+    color: var(--md-sys-color-on-surface);
+}
+
+.empty-tab-card p {
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+
+/* --- Gaya Input Group --- */
+.input-group {
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--md-sys-color-surface-container);
+}
+
+.input-group:focus-within {
+    border-color: var(--md-sys-color-primary);
+    border-width: 2px;
+    box-shadow: var(--md-sys-elevation-1);
+    transform: translateY(-1px);
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 16px;
+}
+
+.input-row .icon {
+    font-size: 24px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.input-group:focus-within .icon {
+    color: var(--md-sys-color-primary);
+}
+
+.success-icon {
+    color: var(--md-sys-color-success) !important;
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+.pulse-active {
+    animation: iconPulse 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Denyut terus-menerus saat barang terpilih */
+@keyframes denyutCheck {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 135, 90, 0.45); }
+    50% { transform: scale(1.3); box-shadow: 0 0 0 12px rgba(0, 135, 90, 0); }
+}
+
+.denyut-terus {
+    position: relative;
+    animation: denyutCheck 1.3s ease-in-out infinite;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Lencana jumlah SKU */
+.label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.sku-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--md-sys-color-on-primary-container);
+    background-color: var(--md-sys-color-primary-container);
+    border: 1px solid var(--md-sys-color-primary);
+}
+
+.sku-counter .custom-total {
+    opacity: 0.75;
+    font-weight: 600;
+}
+
+.label-row-kanan {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.manage-sku-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface-variant);
+    border: 1px solid var(--md-sys-color-outline);
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.manage-sku-btn:hover {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border-color: var(--md-sys-color-primary);
+}
+
+.manage-sku-btn:active {
+    transform: scale(0.92);
+}
+
+
+.text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.text-content label {
+    font-size: 11px;
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.text-content .value {
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface);
+    font-weight: 600;
+}
+
+.text-content input {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: var(--md-sys-color-on-surface);
+    font-weight: 600;
+    background: transparent;
+    padding: 2px 0;
+    width: 100%;
+}
+
+/* Placeholder: miring + warna tema yang lembut dan mudah dibaca */
+.text-content input::placeholder {
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.15px;
+}
+
+@supports (color: color-mix(in srgb, red 50%, blue)) {
+    .text-content input::placeholder {
+        color: color-mix(in srgb, var(--md-sys-color-primary) 58%, var(--md-sys-color-on-surface));
+    }
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--md-sys-color-outline);
+    margin: 0 16px 0 56px;
+}
+
+.relative { position: relative; }
+
+.side-btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border: none;
+    border-radius: 12px;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.side-btn:hover {
+    background-color: var(--md-sys-color-outline);
+}
+
+.search-container { 
+    position: relative; 
+    z-index: 99;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 74px; 
+    left: 0;
+    right: 0;
+    background-color: var(--md-sys-color-surface) !important;
+    z-index: 99999;
+    box-shadow: var(--md-sys-elevation-3);
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 16px;
+    max-height: min(58vh, 380px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    display: none;
+    animation: slideUpFade 0.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+.dropdown-judul {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 8px 16px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--md-sys-color-on-surface-variant);
+    background-color: var(--md-sys-color-surface-container);
+    border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+.dropdown-kosong {
+    padding: 20px 16px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.dropdown-item {
+    display: block;
+    min-height: 56px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 13.5px;
+    color: var(--md-sys-color-on-surface);
+    background-color: var(--md-sys-color-surface) !important;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+    transition: background 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.dropdown-item.cocok-angka {
+    border-left: 3px solid var(--md-sys-color-primary);
+}
+
+.dropdown-sku {
+    font-size: 14px;
+    font-weight: 800;
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+    color: var(--md-sys-color-primary);
+    letter-spacing: 0.3px;
+}
+
+.dropdown-chip {
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--md-sys-color-on-surface-variant);
+    background-color: var(--md-sys-color-surface-container-high);
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+.dropdown-chip.chip-palet {
+    color: var(--md-sys-color-on-primary-container);
+    background-color: var(--md-sys-color-primary-container);
+    border-color: var(--md-sys-color-primary);
+}
+
+.dropdown-nama {
+    margin-top: 3px;
+    font-size: 12.5px;
+    line-height: 1.35;
+    color: var(--md-sys-color-on-surface);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.dropdown-sisa {
+    margin-top: 3px;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--md-sys-color-error);
+}
+
+.dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item.disorot {
+    background-color: var(--md-sys-color-primary-container) !important;
+}
+
+.dropdown-item:active {
+    transform: scale(0.99);
+}
+
+
+/* --- Tombol Aksi & Hasil --- */
+.action-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #2b63d6 0%, #1d4fb8 55%, #123a8c 100%);
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 4px;
+    box-shadow: var(--md-sys-elevation-1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action-btn:hover {
+    box-shadow: var(--md-sys-elevation-3);
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.result-container {
+    margin-top: 12px;
+    padding: 16px;
+    background-color: var(--md-sys-color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--md-sys-color-outline);
+    display: none;
+}
+
+.result-container h3 {
+    font-size: 14px;
+    color: var(--md-sys-color-primary);
+    margin-bottom: 8px;
+}
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 6px;
+}
+.result-row .res-val {
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+}
+.result-row.highlight {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--md-sys-color-outline);
+    font-weight: 700;
+}
+.result-row.highlight span { color: var(--md-sys-color-error); }
+.result-row.highlight .res-val { color: var(--md-sys-color-error); font-size: 16px; }
+
+/* --- Perbaikan Kontainer Riwayat Kalkulator pada Dark Mode --- */
+body.dark-mode .booking-card .result-container,
+body.dark-mode .booking-card div[style*="background"] {
+    background-color: var(--md-sys-color-surface-container) !important;
+    border-color: var(--md-sys-color-outline-variant) !important;
+    color: var(--md-sys-color-on-surface) !important;
+}
+
+body.dark-mode .booking-card div[style*="color"] {
+    color: var(--md-sys-color-on-surface-variant) !important;
+}
+
+/* --- Bottom Navigation (Floating Glass) --- */
+.bottom-nav {
+    position: absolute;
+    bottom: calc(14px + var(--navbar-bottom, 0px));
+    left: 14px;
+    right: 14px;
+    height: 64px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    border-radius: 24px;
+    border: 1px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-surface);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .bottom-nav {
+        background-color: color-mix(in srgb, var(--md-sys-color-surface) 58%, transparent);
+        border-color: color-mix(in srgb, var(--md-sys-color-outline) 60%, transparent);
+        -webkit-backdrop-filter: blur(22px) saturate(180%);
+        backdrop-filter: blur(22px) saturate(180%);
+    }
+}
+
+.nav-item {
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    flex: 1;
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 11px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-item .nav-icon {
+    width: 21px;
+    height: 21px;
+    display: block;
+    padding: 6px 20px;
+    box-sizing: content-box;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+
+.nav-item.active {
+    color: var(--md-sys-color-primary);
+    font-weight: 700;
+}
+
+.nav-item.active .nav-icon {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    transform: translateY(-1px);
+}
+
+.nav-item:active .nav-icon {
+    transform: scale(0.92);
+}
+
+/* --- Floating Action Button (Tambah SKU Custom) --- */
+.fab-btn {
+    position: absolute;
+    right: 18px;
+    bottom: calc(92px + var(--navbar-bottom, 0px));
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 200;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24), 0 2px 4px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.fab-btn.tersembunyi {
+    display: none;
+}
+
+.fab-btn span.material-symbols-outlined {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.fab-btn:active {
+    transform: scale(0.92);
+}
+
+#tabKalkulator {
+    padding-bottom: 165px;
+}
+
+/* --- Label Custom pada Hasil Pencarian --- */
+.dropdown-item .custom-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border: 1px solid var(--md-sys-color-primary);
+}
+
+/* --- Formulir SKU Custom --- */
+.form-field {
+    margin-bottom: 14px;
+}
+
+.form-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 6px;
+}
+
+.form-hint {
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1.5px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 400;
+}
+
+.form-input:focus {
+    border-color: var(--md-sys-color-primary);
+    box-shadow: 0 0 0 3px var(--md-sys-color-primary-container);
+}
+
+.form-error {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--md-sys-color-error);
+    min-height: 16px;
+}
+
+.btn-secondary {
+    padding: 10px 24px;
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--md-sys-color-surface-variant);
+}
+
+/* --- Modal & Elemen Pengaturan --- */
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.modal-card {
+    background-color: var(--md-sys-color-surface);
+    width: 100%;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    max-height: 85%;
+    box-shadow: var(--md-sys-elevation-3);
+    animation: modalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-header {
+    padding: 20px 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--md-sys-color-on-surface);
+}
+
+.close-btn { background: transparent; border: none; cursor: pointer; color: var(--md-sys-color-on-surface-variant); border-radius: 50%; width: 32px; height: 32px; display:flex; justify-content:center; align-items:center;}
+.close-btn:hover { background: var(--md-sys-color-surface-variant); }
+
+.modal-body { padding: 16px 20px; overflow-y: auto; flex-grow: 1; }
+
+.history-item {
+    background-color: var(--md-sys-color-surface-variant);
+    color: var(--md-sys-color-on-surface-variant);
+    padding: 14px 16px;
+    border-radius: 18px;
+    margin-bottom: 12px;
+    border: 1px solid var(--md-sys-color-outline);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: var(--md-sys-elevation-1);
+    transition: all 0.2s ease;
+}
+
+.history-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    line-height: 1.35;
+}
+
+.history-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.history-badge {
+    background: var(--md-sys-color-surface);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid var(--md-sys-color-outline);
+}
+
+.history-results {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--md-sys-color-outline);
+}
+
+.history-sisa {
+    color: var(--md-sys-color-error);
+    font-weight: 700;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+.setting-item-vertical {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+.modal-body > :last-child {
+    border-bottom: none;
+    padding-bottom: 6px;
+}
+
+.setting-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.setting-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--md-sys-color-on-surface);
+}
+
+.setting-desc {
+    font-size: 11px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--md-sys-color-surface-variant);
+    border: 1px solid var(--md-sys-color-outline);
+    transition: .3s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--md-sys-color-on-surface-variant);
+    transition: .3s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: var(--md-sys-color-primary);
+    border-color: var(--md-sys-color-primary);
+}
+input:checked + .slider:before {
+    transform: translateX(20px);
+    background-color: var(--md-sys-color-background);
+}
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(5, 44px);
+    justify-content: space-between;
+    gap: 12px 6px;
+    margin-top: 14px;
+}
+.theme-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s;
+}
+.theme-circle.active {
+    border-color: var(--md-sys-color-on-surface);
+    transform: scale(1.15);
+}
+
+.modal-footer { padding: 16px 20px; border-top: 1px solid var(--md-sys-color-outline); display: flex; gap: 8px; justify-content: flex-end;}
+
+.btn-outline-danger {
+    width: 100%;
+    padding: 12px;
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-error);
+    border: 1px solid var(--md-sys-color-error);
+    border-radius: 28px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+}
+
+.btn-primary {
+    padding: 10px 24px;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-background);
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.particle {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: explode 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    z-index: 9999;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+/* --- Penyesuaian Komponen Sub-Kalkulator Tab 2 --- */
+.sub-calc-wrap * {
+    box-sizing: border-box;
+}
+.sub-calc-wrap .card-dus {
+    width: 100%;
+    background: var(--md-sys-color-surface-container-high);
+    border-radius: 20px;
+    padding: 14px 16px;
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    overflow: visible;
+    color: var(--md-sys-color-on-surface);
+    text-align: left;
+    transition: box-shadow 0.2s ease;
+}
+.sub-calc-wrap .header-dus {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+.sub-calc-wrap .logo-dus {
+    width: 34px;
+    height: 34px;
+    background: var(--md-sys-color-primary-container);
+    border-radius: 10px;
+    border: 1.5px solid var(--md-sys-color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sub-calc-wrap .logo-dus svg {
+    stroke: var(--md-sys-color-on-primary-container);
+}
+.sub-calc-wrap h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--md-sys-color-on-surface);
+    letter-spacing: 0.2px;
+}
+.sub-calc-wrap label {
+    font-size: 11px;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-top: 8px;
+    display: block;
+    margin-left: 4px;
+    font-weight: 500;
+}
+.sub-calc-wrap .input-wrap-dus {
+    padding: 2px;
+    margin-top: 2px;
+}
+.sub-calc-wrap input.input-dus {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--md-sys-color-outline);
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+.sub-calc-wrap input.input-dus:focus {
+    border-color: var(--md-sys-color-primary);
+    box-shadow: 0 0 0 3px rgba(103, 80, 164, 0.2);
+}
+.sub-calc-wrap .grid2-dus {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.sub-calc-wrap .btn-dus {
+    width: 100%;
+    margin-top: 10px;
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    border: 0;
+    padding: 12px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.1s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.sub-calc-wrap .btn-dus:active {
+    transform: scale(0.98);
+    filter: brightness(0.95);
+}
+.sub-calc-wrap .box-dus {
+    background: var(--md-sys-color-surface);
+    border-radius: 14px;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid var(--md-sys-color-outline-variant);
+    overflow: hidden;
+}
+.sub-calc-wrap .summary-dus {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+.sub-calc-wrap .sum-item-dus {
+    background: var(--md-sys-color-surface-container);
+    border-radius: 10px;
+    padding: 6px 4px;
+    text-align: center;
+    border: 1px solid var(--md-sys-color-outline-variant);
+    min-width: 0;
+}
+.sub-calc-wrap .sum-item-dus small {
+    display: block;
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 9px;
+}
+.sub-calc-wrap .sum-item-dus .dim {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    display: block;
+    white-space: nowrap;
+}
+.sub-calc-wrap .sum-item-dus .val {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--md-sys-color-primary);
+    display: block;
+    margin-top: 2px;
+}
+.sub-calc-wrap .sum-item-dus.sisa .val {
+    color: var(--md-sys-color-success);
+}
+.sub-calc-wrap .pulse-wrap-dus {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.sub-calc-wrap .pulse-dus {
+    border-radius: 12px;
+    padding: 8px;
+    text-align: center;
+    font-weight: 800;
+    animation: denyutDus 1.6s infinite;
+    border: 1.5px solid;
+}
+.sub-calc-wrap .pulse-dus.green {
+    background: var(--md-sys-color-surface-container);
+    border-color: var(--md-sys-color-success);
+    color: var(--md-sys-color-success);
+}
+.sub-calc-wrap .pulse-dus.blue {
+    background: var(--md-sys-color-surface-container);
+    border-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-primary);
+}
+.sub-calc-wrap .pulse-dus b {
+    font-size: 14px;
+    display: block;
+}
+@keyframes denyutDus {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+.sub-calc-wrap .big-hasil-dus {
+    text-align: center;
+    margin: 8px 0 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--md-sys-color-on-primary-container);
+    border: 1px dashed var(--md-sys-color-primary);
+    border-radius: 12px;
+    padding: 8px;
+    background: var(--md-sys-color-primary-container);
+}
+.sub-calc-wrap .detail-dus {
+    background: var(--md-sys-color-surface-container);
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: var(--md-sys-color-on-surface);
+    border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* --- Kelola SKU Custom --- */
+.kelola-catatan {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--md-sys-color-on-surface-variant);
+    background: var(--md-sys-color-surface-container);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin: 0 0 14px 0;
+}
+
+.kosong-kelola {
+    text-align: center;
+    font-size: 13px;
+    color: var(--md-sys-color-on-surface-variant);
+    opacity: 0.7;
+    padding: 24px 8px;
+    margin: 0;
+}
+
+.baris-kelola {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--md-sys-color-surface-variant);
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 16px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+}
+
+.baris-kelola-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.baris-kelola-nama {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface);
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.baris-kelola-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+.kode-sku {
+    font-weight: 700;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--md-sys-color-primary);
+}
+
+.badge-permanen {
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 9.5px;
+    font-weight: 700;
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border: 1px solid var(--md-sys-color-primary);
+}
+
+.baris-kelola-aksi {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.tombol-aksi-sku {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--md-sys-color-surface);
+    border: 1px solid var(--md-sys-color-outline);
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tombol-aksi-sku:hover {
+    background-color: var(--md-sys-color-primary-container);
+    border-color: var(--md-sys-color-primary);
+}
+
+.tombol-aksi-sku:active {
+    transform: scale(0.9);
+}
+
+.tombol-aksi-sku.bahaya {
+    color: var(--md-sys-color-error);
+}
+
+.tombol-aksi-sku.bahaya:hover {
+    background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+    border-color: var(--md-sys-color-error);
+}
+
+.kelola-footer {
+    flex-wrap: wrap;
+}
+
+.kelola-footer .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 14px;
+    font-size: 12.5px;
+}
+
+.kelola-footer .btn-primary {
+    margin-left: auto;
+}
+
+.btn-secondary.bahaya {
+    color: var(--md-sys-color-error);
+    border-color: var(--md-sys-color-error);
+}
+
+.btn-secondary.bahaya:hover {
+    background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+}
+
+/* --- Konfirmasi Ya / Tidak --- */
+.modal-konfirmasi {
+    max-width: 340px;
+}
+
+.pesan-konfirmasi {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--md-sys-color-on-surface);
+    margin: 0;
+    word-break: break-word;
+}
+
+.btn-primary.btn-bahaya {
+    background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+}
+
+/* --- Toast --- */
+.toast-app {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 92px;
+    z-index: 1300;
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--md-sys-color-on-surface);
+    background-color: var(--md-sys-color-surface-container-high);
+    border: 1px solid var(--md-sys-color-outline);
+    box-shadow: var(--md-sys-elevation-3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast-app.tampil {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-app.sukses {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    border-color: var(--md-sys-color-primary);
+}
+
+.toast-app.gagal {
+    background-color: var(--md-sys-color-error);
+    color: var(--md-sys-color-on-error);
+    border-color: var(--md-sys-color-error);
+}
+
+/* --- Layar Kalkulator Pro (gaya kalkulator HP) --- */
+.pro-layar {
+    background: linear-gradient(135deg, #2e6be0 0%, #1d4fb8 55%, #123a8c 100%);
+    border-radius: 20px;
+    padding: 14px 16px 16px 16px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(18, 58, 140, 0.3);
+    margin-bottom: 12px;
+    min-height: 158px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pro-layar-judul {
+    font-size: 10px;
+    opacity: 0.75;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.pro-layar-angka {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: none;
+    padding: 0;
+    margin: 10px 0 8px 0;
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    text-align: right;
+    font-size: var(--pro-angka, 40px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x;
+}
+
+.pro-layar-sub {
+    font-size: 13px;
+    text-align: right;
+    opacity: 0.9;
+    min-height: 18px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ==== EDIT SKU BAWAAN ==== */
+.kelola-divider {
+    border-top: 1px solid rgba(127, 127, 127, 0.25);
+    margin: 18px 0 12px;
+}
+.kelola-subjudul {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.cari-bawaan-input {
+    margin-bottom: 10px;
+}
+
+/* ==== PETUNJUK PANAH ANIMASI ==== */
+.label-row-kanan {
+    position: relative;
+}
+.petunjuk {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    z-index: 40;
+    animation: petunjukNaikTurun 0.9s ease-in-out infinite alternate;
+}
+.petunjuk-teks {
+    background: linear-gradient(135deg, #FF7043, #E91E63);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(233, 30, 99, 0.45);
+}
+.petunjuk-teks-hijau {
+    background: linear-gradient(135deg, #00BFA5, #43A047);
+    box-shadow: 0 2px 8px rgba(0, 191, 165, 0.45);
+}
+.petunjuk-panah-bawah {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #E91E63;
+    margin-top: 1px;
+}
+.petunjuk-panah-hijau {
+    border-top-color: #00BFA5;
+}
+.petunjuk-edit {
+    right: -4px;
+    bottom: calc(100% + 2px);
+}
+.petunjuk-tambah {
+    right: -8px;
+    bottom: calc(160px + var(--navbar-bottom, 0px));
+    width: 110px;
+}
+@keyframes petunjukNaikTurun {
+    from { transform: translateY(0); }
+    to { transform: translateY(-4px); }
+}
+.petunjuk-edit {
+    align-items: flex-end;
+}
+.petunjuk-edit .petunjuk-panah-bawah {
+    margin-right: 8px;
+}
+
+/* ==== PERBAIKAN PETUNJUK & TOMBOL EDIT SKU ==== */
+/* Petunjuk TAMBAH SKU sekarang menempel di dalam tombol +, jadi ikut
+   sembunyi/tampil mengikuti tab dan posisinya selalu pas di atas tombol. */
+.petunjuk-tambah {
+    right: auto;
+    bottom: calc(100% + 7px);
+    left: 50%;
+    width: max-content;
+    animation-name: petunjukNaikTurunTengah;
+}
+.petunjuk-tambah .petunjuk-teks {
+    font-size: 10.5px;
+    padding: 3px 8px;
+}
+@keyframes petunjukNaikTurunTengah {
+    from { transform: translateX(-50%) translateY(0); }
+    to { transform: translateX(-50%) translateY(-4px); }
+}
+
+/* Tombol Edit SKU: ikon pensil + gradasi oranye-pink biar jelas terlihat */
+.manage-sku-btn {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #FF7043, #E91E63);
+    color: #fff;
+    border: none;
+    box-shadow: 0 2px 6px rgba(233, 30, 99, 0.45);
+}
+.manage-sku-btn:hover {
+    background: linear-gradient(135deg, #FF8A50, #F43A8C);
+    color: #fff;
+    border: none;
+}
+
+/* ==== PERBAIKAN SWIPE PINDAH TAB ==== */
+/* Tanpa ini, WebView mengambil alih geseran agak miring sebagai scroll
+   vertikal dan membatalkan (touchcancel) swipe horizontal JS-nya. */
+.tab-content {
+    touch-action: pan-y;
+}
+.mobile-container {
+    touch-action: pan-y;
+}
+
+/* --- Pilihan Gaya Kartu (Pengaturan) --- */
+.gaya-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+.gaya-btn {
+    flex: 1;
+    padding: 11px 0;
+    border-radius: 999px;
+    border: 2px solid var(--md-sys-color-outline);
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface-variant);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.gaya-btn.active {
+    border-color: var(--md-sys-color-primary);
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+}
+
+/* --- Gaya Kartu 3D: timbul lembut, tepi tebal --- */
+body.gaya-3d .booking-card {
+    background: linear-gradient(180deg, #ffffff 0%, var(--md-sys-color-surface-container) 100%);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline-variant);
+    border-color: color-mix(in srgb, var(--md-sys-color-primary) 32%, #ffffff);
+    box-shadow: 0 5px 0 color-mix(in srgb, var(--md-sys-color-primary) 24%, #ffffff), 0 16px 30px rgba(15, 35, 75, 0.17), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+body.gaya-3d .input-group {
+    background: linear-gradient(180deg, #ffffff 0%, var(--md-sys-color-surface-container) 100%);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline-variant);
+    border-color: color-mix(in srgb, var(--md-sys-color-primary) 26%, #ffffff);
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--md-sys-color-primary) 20%, #ffffff), 0 9px 18px rgba(15, 35, 75, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+body.gaya-3d .result-container {
+    background: var(--md-sys-color-surface);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline-variant);
+    border-color: color-mix(in srgb, var(--md-sys-color-primary) 26%, #ffffff);
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--md-sys-color-primary) 20%, #ffffff), 0 10px 20px rgba(15, 35, 75, 0.13), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+body.gaya-3d .history-item {
+    background: var(--md-sys-color-surface-variant);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline-variant);
+    border-color: color-mix(in srgb, var(--md-sys-color-primary) 26%, #ffffff);
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--md-sys-color-primary) 20%, #ffffff), 0 10px 20px rgba(15, 35, 75, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+body.gaya-3d .baris-kelola {
+    border-width: 2px;
+    box-shadow: 0 3px 0 color-mix(in srgb, var(--md-sys-color-primary) 18%, #ffffff), 0 7px 14px rgba(15, 35, 75, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+body.gaya-3d .modal-card {
+    box-shadow: 0 24px 48px rgba(10, 26, 58, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+body.gaya-3d .sub-calc-wrap .card-dus {
+    border-width: 2px;
+    box-shadow: 0 4px 0 color-mix(in srgb, var(--md-sys-color-primary) 20%, #ffffff), 0 12px 24px rgba(15, 35, 75, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* --- Gaya Kartu 3D (mode gelap) --- */
+body.dark-mode.gaya-3d .booking-card {
+    background: linear-gradient(180deg, var(--md-sys-color-surface-container-high) 0%, var(--md-sys-color-surface) 100%);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline-variant);
+    box-shadow: 0 5px 0 rgba(0, 0, 0, 0.4), 0 16px 30px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+body.dark-mode.gaya-3d .input-group {
+    background: linear-gradient(180deg, var(--md-sys-color-surface-container-high) 0%, var(--md-sys-color-surface-container) 100%);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline-variant);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35), 0 9px 18px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+body.dark-mode.gaya-3d .result-container {
+    background: var(--md-sys-color-surface);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline-variant);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35), 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+body.dark-mode.gaya-3d .history-item {
+    background: var(--md-sys-color-surface-variant);
+    border-width: 2px;
+    border-color: var(--md-sys-color-outline-variant);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35), 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+body.dark-mode.gaya-3d .baris-kelola {
+    border-width: 2px;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35), 0 7px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+body.dark-mode.gaya-3d .modal-card {
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+body.dark-mode.gaya-3d .sub-calc-wrap .card-dus {
+    border-width: 2px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35), 0 12px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* --- Animasi Teks Judul (ala TKBM) --- */
+.animasi-berjalan {
+    display: inline-block;
+    white-space: nowrap;
+    animation: jalanTeks 5.5s linear infinite;
+}
+@keyframes jalanTeks {
+    0% { transform: translateX(105%); }
+    100% { transform: translateX(-105%); }
+}
+.animasi-jatuh span {
+    display: inline-block;
+    animation: fallLoopJudul 2.5s infinite linear;
+}
+@keyframes fallLoopJudul {
+    0% { transform: translateY(-20px); opacity: 0; }
+    15% { transform: translateY(0); opacity: 1; }
+    70% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(20px); opacity: 0; }
+}
+.animasi-denyut {
+    display: inline-block;
+    animation: denyutJudul 1.5s infinite ease-in-out;
+}
+@keyframes denyutJudul {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.08); opacity: 0.85; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.animasi-slidehapus span {
+    display: inline-block;
+    animation: slideHapusLoop 3s infinite ease-in-out;
+}
+@keyframes slideHapusLoop {
+    0%, 45% { transform: translateX(0); opacity: 1; }
+    65%, 100% { transform: translateX(16px); opacity: 0; }
+}
+.anim-options {
+    flex-wrap: wrap;
+}
+.anim-options .gaya-btn {
+    flex: 1 1 28%;
+    white-space: nowrap;
+    padding: 10px 6px;
+    font-size: 13px;
+}
+
+/* --- Sembunyikan nav & FAB saat mengetik (keyboard terbuka) --- */
+.bottom-nav {
+    transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+.fab-btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, opacity 0.2s ease, visibility 0.2s;
+}
+.mobile-container.sedang-ketik .bottom-nav,
+.mobile-container.sedang-ketik .fab-btn {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(14px);
+}
+
+
+/* --- Splash Pembuka --- */
+.splash-layar {
+    position: absolute;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(160deg, var(--md-sys-color-primary) 0%, var(--md-sys-color-on-primary-container) 100%);
+    transition: opacity 0.45s ease, visibility 0.45s;
+}
+body.dark-mode .splash-layar {
+    background: linear-gradient(160deg, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-background) 100%);
+}
+.splash-layar.selesai {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.splash-ikon {
+    width: 112px;
+    height: 112px;
+    border-radius: 26px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+    animation: splashPop 0.7s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+@keyframes splashPop {
+    0% { transform: scale(0.5) translateY(24px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.splash-judul {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: flex;
+    margin-top: 6px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.splash-judul span {
+    display: inline-block;
+    opacity: 0;
+    animation: splashJatuh 0.55s ease forwards;
+}
+@keyframes splashJatuh {
+    0% { transform: translateY(-26px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+.splash-sub {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 13px;
+    animation: splashMuncul 0.8s 0.35s ease both;
+}
+.splash-bar {
+    width: 150px;
+    height: 4px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+    margin-top: 10px;
+    animation: splashMuncul 0.8s 0.35s ease both;
+}
+.splash-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 99px;
+    background: #ffffff;
+    animation: splashIsi 1.15s 0.15s ease forwards;
+}
+@keyframes splashIsi {
+    to { width: 100%; }
+}
+@keyframes splashMuncul {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+}
+
+</style>
+    <style>
+        /* Font lokal fallback (tanpa Google Fonts) */
+        @font-face {
+            font-family: 'RobotoLocal';
+            src: local('Roboto'), local('Segoe UI'), local('Arial');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Ikon SVG pengganti Material Symbols */
+        .material-symbols-outlined {
+            font-family: 'RobotoLocal', sans-serif;
+            font-size: 22px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: normal;
+            font-style: normal;
+        }
+        .material-symbols-outlined svg {
+            width: 1em;
+            height: 1em;
+            fill: currentColor;
+            stroke: currentColor;
+            stroke-width: 0;
+        }
+        .material-symbols-outlined.stroke svg {
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .rinova-badge-container {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+            text-align: center;
+            width: 100%;
+            margin-top: 0;
+        }
+        .rinova-badge-container.show {
+            max-height: 40px;
+            opacity: 1;
+            margin-top: 5px;
+        }
+        .rinova-card {
+            display: inline-block;
+            background-color: var(--md-sys-color-primary-container, #e858d1);
+            color: var(--md-sys-color-on-primary-container, #21005d);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border: 1.5px solid var(--md-sys-color-outline, #e858d1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            user-select: none;
+        }
+        .header-bg { padding-bottom: 65px !important; }
+        .tab-content { margin-top: -50px !important; }
+
+        #tabKalkulator .booking-card {
+            padding: 22px 18px !important;
+            margin-bottom: 20px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 16px !important;
+        }
+        #tabKalkulator .input-group {
+            margin-bottom: 0 !important;
+            padding: 8px 12px !important;
+        }
+        #tabKalkulator .input-row { padding: 10px 4px !important; }
+        #tabKalkulator .divider { margin: 6px 0 !important; }
+        #tabKalkulator .action-btn {
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+            padding: 16px !important;
+            font-size: 16px !important;
+        }
+        #tabKalkulator .result-container {
+            margin-top: 0 !important;
+            padding: 16px !important;
+        }
+        #tabKalkulator .result-row { margin-bottom: 8px !important; }
+
+        .sub-calc-wrap * { box-sizing: border-box; }
+        .sub-calc-wrap .card-dus {
+            width: 100%;
+            background: var(--md-sys-color-surface-container-high, #f3f3f3);
+            border-radius: 22px;
+            padding: 18px;
+            border: 1.5px solid var(--md-sys-color-outline-variant, #cac4d0);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            overflow: visible;
+            color: var(--md-sys-color-on-surface, #1d1b20);
+            text-align: left;
+        }
+        .sub-calc-wrap .header-dus {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .sub-calc-wrap .logo-dus {
+            width: 40px;
+            height: 40px;
+            background: var(--md-sys-color-primary-container, #eaddff);
+            border-radius: 12px;
+            border: 1.5px solid var(--md-sys-color-primary, #6750a4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sub-calc-wrap .logo-dus svg {
+            stroke: var(--md-sys-color-on-primary-container, #21005d);
+        }
+        .sub-calc-wrap h2 {
+            font-size: 19px;
+            margin: 0;
+            color: var(--md-sys-color-on-surface, #1d1b20);
+        }
+        .sub-calc-wrap label {
+            font-size: 11px;
+            color: var(--md-sys-color-on-surface-variant, #49454f);
+            margin-top: 12px;
+            display: block;
+            margin-left: 4px;
+            font-weight: 500;
+        }
+        .sub-calc-wrap .input-wrap-dus { padding: 3px; margin-top: 4px; }
+        .sub-calc-wrap input.input-dus {
+            width: 100%;
+            padding: 13px 14px;
+            border-radius: 12px;
+            border: 1.5px solid var(--md-sys-color-outline, #79747e);
+            background: var(--md-sys-color-surface, #fff);
+            color: var(--md-sys-color-on-surface, #1d1b20);
+            font-size: 17px;
+            font-weight: 700;
+            outline: none;
+            transition: .2s;
+        }
+        .sub-calc-wrap input.input-dus:focus {
+            border-color: var(--md-sys-color-primary, #6750a4);
+            box-shadow: 0 0 0 3px rgba(103, 80, 164, 0.2);
+        }
+        .sub-calc-wrap .grid2-dus {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .sub-calc-wrap .btn-dus {
+            width: 100%;
+            margin-top: 14px;
+            background: var(--md-sys-color-primary, #6750a4);
+            color: var(--md-sys-color-on-primary, #fff);
+            border: 0;
+            padding: 14px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .sub-calc-wrap .box-dus {
+            background: var(--md-sys-color-surface, #fff);
+            border-radius: 16px;
+            padding: 10px;
+            margin-top: 12px;
+            border: 1.5px solid var(--md-sys-color-outline-variant, #cac4d0);
+        }
+        .sub-calc-wrap .summary-dus {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .sub-calc-wrap .sum-item-dus {
+            background: var(--md-sys-color-surface-container, #f0ede6);
+            border-radius: 12px;
+            padding: 8px 4px;
+            text-align: center;
+            border: 1px solid var(--md-sys-color-outline-variant, #cac4d0);
+            min-width: 0;
+        }
+        .sub-calc-wrap .sum-item-dus small {
+            display: block;
+            color: var(--md-sys-color-on-surface-variant, #49454f);
+            font-size: 9px;
+        }
+        .sub-calc-wrap .sum-item-dus .dim {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--md-sys-color-on-surface, #1d1b20);
+            display: block;
+            white-space: nowrap;
+        }
+        .sub-calc-wrap .sum-item-dus .val {
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--md-sys-color-primary, #6750a4);
+            display: block;
+            margin-top: 3px;
+        }
+        .sub-calc-wrap .sum-item-dus.sisa .val { color: #146c2e; }
+        .sub-calc-wrap .pulse-wrap-dus {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .sub-calc-wrap .pulse-dus {
+            border-radius: 14px;
+            padding: 10px;
+            text-align: center;
+            font-weight: 800;
+            animation: denyutDus 1.6s infinite;
+            border: 1.5px solid;
+        }
+        .sub-calc-wrap .pulse-dus.green {
+            background: #e8f5e9;
+            border-color: #2e7d32;
+            color: #2e7d32;
+        }
+        .sub-calc-wrap .pulse-dus.blue {
+            background: #e3f2fd;
+            border-color: #1565c0;
+            color: #1565c0;
+        }
+        .sub-calc-wrap .pulse-dus b { font-size: 20px; display: block; }
+        @keyframes denyutDus {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .sub-calc-wrap .big-hasil-dus {
+            text-align: center;
+            margin: 10px 0 6px;
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--md-sys-color-primary, #6750a4);
+            border: 1.5px dashed var(--md-sys-color-primary, #6750a4);
+            border-radius: 10px;
+            padding: 8px;
+            background: var(--md-sys-color-primary-container, #eaddff);
+        }
+        .sub-calc-wrap .detail-dus {
+            background: var(--md-sys-color-surface-container, #f0ede6);
+            border-radius: 12px;
+            padding: 10px;
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: var(--md-sys-color-on-surface, #1d1b20);
+            border: 1px solid var(--md-sys-color-outline-variant, #cac4d0);
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- SPLASH PEMBUKA -->
+        <div id="splashLayar" class="splash-layar">
+            <img src="https://muse.ai/files/1408806072308155/1657979405591088/s6bdtwr0vhg10qk8f7xs3fzw/app-icon.png" alt="Kalkulator SKU" class="splash-ikon">
+            <div class="splash-judul" id="splashJudul">KALKULATOR SKU</div>
+            <div class="splash-sub">Hitung Palet &amp; Susunan Dus</div>
+            <div class="splash-bar"><span></span></div>
+        </div>
+
+        <!-- Header -->
+        <div class="header-bg" id="headerBg">
+            <div class="header-top-new" style="flex-direction: column; align-items: center;">
+                <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                    <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" onclick="toggleDarkMode()" title="Ganti Mode Gelap/Terang">
+                        <span class="material-symbols-outlined" id="themeIcon">☀</span>
+                    </button>
+                    <h1 class="title-outline-new" id="judulAplikasi" onclick="toggleDesignRinova()" style="cursor: pointer;" title="Klik untuk lihat info desainer"><span id="judulTeks">Kalkulator SKU</span></h1>
+                    <button class="icon-btn settings-btn" id="settingsBtn" onclick="bukaPengaturan()" title="Pengaturan" aria-label="Pengaturan">
+                        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" fill-rule="evenodd" d="M22.04,9.68L22.04,14.32L19.45,14.64L19.13,15.4L20.73,17.46L17.46,20.73L15.4,19.13L14.64,19.45L14.32,22.04L9.68,22.04L9.36,19.45L8.6,19.13L6.54,20.73L3.27,17.46L4.87,15.4L4.55,14.64L1.96,14.32L1.96,9.68L4.55,9.36L4.87,8.6L3.27,6.54L6.54,3.27L8.6,4.87L9.36,4.55L9.68,1.96L14.32,1.96L14.64,4.55L15.4,4.87L17.46,3.27L20.73,6.54L19.13,8.6L19.45,9.36ZM8.3,12a3.7,3.7 0 1 0 7.4,0a3.7,3.7 0 1 0 -7.4,0Z" />
+                        </svg>
+                    </button>
+                </div>
+                <div id="rinovaBadgeContainer" class="rinova-badge-container">
+                    <div class="rinova-card" onclick="tutupDesignRinovaManual()">Design by Rinova</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 1: KALKULATOR -->
+        <div id="tabKalkulator" class="tab-content active">
+            <div class="booking-card" id="bookingCard">
+                <div class="input-group search-container">
+                    <div class="input-row">
+                        <span class="material-symbols-outlined icon" id="iconSearch">🔍</span>
+                        <div class="text-content" style="width: 100%;">
+                            <div class="label-row">
+                                <label>Cari SKU / Nama / Dus / Palet</label>
+                                <div class="label-row-kanan">
+                                    <span class="sku-counter" id="skuCounter">0 SKU</span>
+                                    <button type="button" class="manage-sku-btn" id="btnKelolaSku" onclick="bukaKelolaSku()" title="Edit & Kelola SKU">
+                                        <span class="material-symbols-outlined" style="font-size: 15px;">✏️</span>
+                                    </button>
+                                    <div class="petunjuk petunjuk-edit" aria-hidden="true">
+                                        <span class="petunjuk-teks">Edit SKU</span>
+                                        <span class="petunjuk-panah-bawah"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="text" id="searchInput" placeholder="Ketik SKU, nama barang, jumlah dus, atau palet..." autocomplete="off" inputmode="search">
+                        </div>
+                    </div>
+                    <div id="searchResults" class="dropdown-list"></div>
+                    <div class="divider"></div>
+                    <div class="input-row">
+                        <span class="material-symbols-outlined icon success-icon" id="successIcon">✔</span>
+                        <div class="text-content">
+                            <label>Barang Terpilih (Otomatis)</label>
+                            <div class="value" id="selectedItemDisplay">Belum ada barang dipilih</div>
+                            <input type="hidden" id="isiPaletTerpilih" value="0">
+                            <input type="hidden" id="namaBarangTerpilih" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group relative">
+                    <div class="input-row relative">
+                        <span class="material-symbols-outlined icon" id="iconInventory">📦</span>
+                        <div class="text-content" style="width: 100%; padding-right: 40px;">
+                            <label>Isi Palet (Dus)</label>
+                            <input type="number" id="paletManual" placeholder="Otomatis / Ketik Manual" min="1">
+                        </div>
+                        <button class="side-btn" onclick="bukaRiwayat()" title="Lihat Riwayat">
+                            <span class="material-symbols-outlined">🕘</span>
+                        </button>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="input-row">
+                        <span class="material-symbols-outlined icon" id="iconPackage">📋</span>
+                        <div class="text-content" style="width: 100%;">
+                            <label>Total Banyaknya (Dus)</label>
+                            <input type="number" id="totalDus" placeholder="Masukkan total dus keseluruhan..." min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="action-btn" id="btnAksi" onclick="hitungPalet(event)">Hitung Palet & Receh</button>
+
+                <div class="result-container" id="hasilArea">
+                    <h3 id="labelHasilTeks">Hasil Kalkulasi</h3>
+                    <div class="result-row">
+                        <span>Total Dus</span>
+                        <span id="hasilTotal" class="res-val">-</span>
+                    </div>
+                    <div class="result-row">
+                        <span>Palet Penuh (Full)</span>
+                        <span id="hasilPalet" class="res-val">-</span>
+                    </div>
+                    <div class="result-row highlight">
+                        <span>Sisa / Receh</span>
+                        <span id="hasilReceh" class="res-val">⚠ Isi Total Dus & Isi Palet!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: EKSPLOR -->
+        <div id="tabEksplor" class="tab-content">
+            <div class="booking-card sub-calc-wrap">
+                <div class="card-dus">
+                    <div class="header-dus">
+                        <div class="logo-dus">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h2>Kalkulator Dus Presisi</h2>
+                    </div>
+                    <label>Total Target Dus</label>
+                    <div class="input-wrap-dus">
+                        <input class="input-dus" id="totalDusBaru" type="number" value="2500" oninput="hitungSusunanDus()">
+                    </div>
+                    <div class="grid2-dus">
+                        <div>
+                            <label>Belakang</label>
+                            <div class="input-wrap-dus">
+                                <input class="input-dus" id="blkDusBaru" type="number" value="32" oninput="hitungSusunanDus()">
+                            </div>
+                        </div>
+                        <div>
+                            <label>Samping Max</label>
+                            <div class="input-wrap-dus">
+                                <input class="input-dus" id="smpDusBaru" type="number" value="9" oninput="hitungSusunanDus()">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-dus" id="btnHitungDusBaru" onclick="hitungSusunanDus()">HITUNG SUSUNAN PRESISI</button>
+                    <div class="box-dus" id="hasilDusBaru"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: PROFIL / KALKULATOR PRO -->
+        <div id="tabProfil" class="tab-content">
+            <div class="booking-card sub-calc-wrap">
+                <div class="card-dus" style="position: relative;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div class="header-dus" style="margin-bottom: 0; justify-content: flex-start;">
+                            <div class="logo-dus" style="background: var(--md-sys-color-primary, #6750a4); border-color: var(--md-sys-color-primary, #6750a4);">
+                                <span class="material-symbols-outlined" style="color: #fff; font-size: 20px;">🧮</span>
+                            </div>
+                            <h2 style="font-size: 16px;">Kalkulator Pro</h2>
+                        </div>
+                        <button onclick="bukaRiwayatProfilModal()" title="Riwayat Kalkulator" style="background: var(--md-sys-color-surface-container-high, #ece6f0); border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--md-sys-color-on-surface-variant, #49454f); box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                            <span class="material-symbols-outlined" style="font-size: 20px;">🕘</span>
+                        </button>
+                    </div>
+
+                    <div class="pro-layar">
+                        <div class="pro-layar-judul">Layar Kalkulator</div>
+                        <input type="text" id="calcProDisplay" class="pro-layar-angka" readonly value="0" inputmode="none">
+                        <div id="calcProSubDisplay" class="pro-layar-sub"></div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px;">
+                        <button class="btn-dus" onclick="proClear()" style="margin-top:0; background: #b3261e; color: #fff; font-size: 13px; padding: 10px;">C</button>
+                        <button class="btn-dus" onclick="proDel()" style="margin-top:0; background: var(--md-sys-color-outline-variant, #cac4d0); color:var(--md-sys-color-on-surface); font-size: 13px; padding: 10px;">⌫</button>
+                        <button class="btn-dus" onclick="proAppend('%')" style="margin-top:0; background: var(--md-sys-color-surface-container, #f0ede6); color:var(--md-sys-color-on-surface); font-size: 13px; padding: 10px;">%</button>
+                        <button class="btn-dus" onclick="proAppend('÷')" style="margin-top:0; background: var(--md-sys-color-secondary-container, #e8def8); color: var(--md-sys-color-on-secondary-container, #1d192b); font-size: 15px; padding: 10px; font-weight: bold;">÷</button>
+
+                        <button class="btn-dus" onclick="proAppend('7')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">7</button>
+                        <button class="btn-dus" onclick="proAppend('8')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">8</button>
+                        <button class="btn-dus" onclick="proAppend('9')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">9</button>
+                        <button class="btn-dus" onclick="proAppend('×')" style="margin-top:0; background: var(--md-sys-color-secondary-container, #e8def8); color: var(--md-sys-color-on-secondary-container, #1d192b); font-size: 15px; padding: 10px; font-weight: bold;">×</button>
+
+                        <button class="btn-dus" onclick="proAppend('4')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">4</button>
+                        <button class="btn-dus" onclick="proAppend('5')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">5</button>
+                        <button class="btn-dus" onclick="proAppend('6')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">6</button>
+                        <button class="btn-dus" onclick="proAppend('-')" style="margin-top:0; background: var(--md-sys-color-secondary-container, #e8def8); color: var(--md-sys-color-on-secondary-container, #1d192b); font-size: 15px; padding: 10px; font-weight: bold;">-</button>
+
+                        <button class="btn-dus" onclick="proAppend('1')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">1</button>
+                        <button class="btn-dus" onclick="proAppend('2')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">2</button>
+                        <button class="btn-dus" onclick="proAppend('3')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">3</button>
+                        <button class="btn-dus" onclick="proAppend('+')" style="margin-top:0; background: var(--md-sys-color-secondary-container, #e8def8); color: var(--md-sys-color-on-secondary-container, #1d192b); font-size: 15px; padding: 10px; font-weight: bold;">+</button>
+
+                        <button class="btn-dus" onclick="proAppend('0')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px; grid-column: span 2;">0</button>
+                        <button class="btn-dus" onclick="proAppend('.')" style="margin-top:0; background: var(--md-sys-color-surface, #fff); color:var(--md-sys-color-on-surface); font-size: 15px; padding: 10px;">.</button>
+                        <button class="btn-dus" onclick="proCalculate()" style="margin-top:0; background: #2e7d32; color: #fff; font-size: 15px; padding: 10px;">=</button>
+                    </div>
+
+                    <div style="background: var(--md-sys-color-surface-container-low, #f7f2fa); border: 1px solid var(--md-sys-color-outline-variant, #cac4d0); border-radius: 16px; padding: 12px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; font-weight: bold; color: var(--md-sys-color-on-surface, #1d1b20); display: flex; align-items: center; gap: 4px;">
+                                <span class="material-symbols-outlined" style="font-size: 16px;">🕘</span> Riwayat Kalkulasi
+                            </span>
+                            <button onclick="proClearRiwayat()" style="background: none; border: none; color: var(--md-sys-color-error, #b3261e); font-size: 11px; cursor: pointer; font-weight: 500;">Hapus</button>
+                        </div>
+                        <div id="proRiwayatListContainer" style="max-height: 110px; overflow-y: auto; font-size: 12px; color: var(--md-sys-color-on-surface-variant, #49454f);">
+                            <div style="text-align: center; opacity: 0.6; padding: 8px;">Belum ada riwayat perhitungan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="gantiTab(this, 'tabKalkulator')">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" fill-rule="evenodd" d="M6.9,2h10.2a3.4,3.4 0 0 1 3.4,3.4v13.2a3.4,3.4 0 0 1 -3.4,3.4h-10.2a3.4,3.4 0 0 1 -3.4,-3.4v-13.2a3.4,3.4 0 0 1 3.4,-3.4zM6.9,4h10.2a1.4,1.4 0 0 1 1.4,1.4v13.2a1.4,1.4 0 0 1 -1.4,1.4h-10.2a1.4,1.4 0 0 1 -1.4,-1.4v-13.2a1.4,1.4 0 0 1 1.4,-1.4zM9.2,6.5h5.6a1.2,1.2 0 0 1 1.2,1.2v1a1.2,1.2 0 0 1 -1.2,1.2h-5.6a1.2,1.2 0 0 1 -1.2,-1.2v-1a1.2,1.2 0 0 1 1.2,-1.2zM8.6,12.4h0.8a0.7,0.7 0 0 1 0.7,0.7v0.8a0.7,0.7 0 0 1 -0.7,0.7h-0.8a0.7,0.7 0 0 1 -0.7,-0.7v-0.8a0.7,0.7 0 0 1 0.7,-0.7zM11.7,12.4h0.8a0.7,0.7 0 0 1 0.7,0.7v0.8a0.7,0.7 0 0 1 -0.7,0.7h-0.8a0.7,0.7 0 0 1 -0.7,-0.7v-0.8a0.7,0.7 0 0 1 0.7,-0.7zM14.8,12.4h0.8a0.7,0.7 0 0 1 0.7,0.7v0.8a0.7,0.7 0 0 1 -0.7,0.7h-0.8a0.7,0.7 0 0 1 -0.7,-0.7v-0.8a0.7,0.7 0 0 1 0.7,-0.7zM8.6,15.6h0.8a0.7,0.7 0 0 1 0.7,0.7v0.8a0.7,0.7 0 0 1 -0.7,0.7h-0.8a0.7,0.7 0 0 1 -0.7,-0.7v-0.8a0.7,0.7 0 0 1 0.7,-0.7zM11.7,15.6h0.8a0.7,0.7 0 0 1 0.7,0.7v0.8a0.7,0.7 0 0 1 -0.7,0.7h-0.8a0.7,0.7 0 0 1 -0.7,-0.7v-0.8a0.7,0.7 0 0 1 0.7,-0.7zM14.8,15.6h0.8a0.7,0.7 0 0 1 0.7,0.7v0.8a0.7,0.7 0 0 1 -0.7,0.7h-0.8a0.7,0.7 0 0 1 -0.7,-0.7v-0.8a0.7,0.7 0 0 1 0.7,-0.7z" />
+                </svg>
+                <span>Kalkulator SKU</span>
+            </button>
+            <button class="nav-item" onclick="gantiTab(this, 'tabEksplor')">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" fill-rule="evenodd" d="M2.5,12a9.5,9.5 0 1 0 19,0a9.5,9.5 0 1 0 -19,0zM4.5,12a7.5,7.5 0 1 0 15,0a7.5,7.5 0 1 0 -15,0zM7.05,16.95L9.81,9.81L16.95,7.05L14.19,14.19ZM10.85,12a1.15,1.15 0 1 0 2.3,0a1.15,1.15 0 1 0 -2.3,0z" />
+                </svg>
+                <span>Eksplor</span>
+            </button>
+            <button class="nav-item" onclick="gantiTab(this, 'tabProfil')">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" fill-rule="evenodd" d="M7,2h10a5,5 0 0 1 5,5v10a5,5 0 0 1 -5,5h-10a5,5 0 0 1 -5,-5v-10a5,5 0 0 1 5,-5zM7,4h10a3,3 0 0 1 3,3v10a3,3 0 0 1 -3,3h-10a3,3 0 0 1 -3,-3v-10a3,3 0 0 1 3,-3zM7.6,7.4h8.8a1.2,1.2 0 0 1 1.2,1.2v0a1.2,1.2 0 0 1 -1.2,1.2h-8.8a1.2,1.2 0 0 1 -1.2,-1.2v0a1.2,1.2 0 0 1 1.2,-1.2zM9.7,9h0a1.3,1.3 0 0 1 1.3,1.3v5a1.3,1.3 0 0 1 -1.3,1.3h0a1.3,1.3 0 0 1 -1.3,-1.3v-5a1.3,1.3 0 0 1 1.3,-1.3zM14.3,9h0a1.3,1.3 0 0 1 1.3,1.3v5a1.3,1.3 0 0 1 -1.3,1.3h0a1.3,1.3 0 0 1 -1.3,-1.3v-5a1.3,1.3 0 0 1 1.3,-1.3z" />
+                </svg>
+                <span>Kalkulator</span>
+            </button>
+        </nav>
+
+        <button class="fab-btn" id="fabTambahSku" onclick="bukaFormSkuCustom()" title="Tambah SKU Custom">
+            <span class="petunjuk petunjuk-tambah" aria-hidden="true">
+                <span class="petunjuk-teks petunjuk-teks-hijau">TAMBAH SKU</span>
+                <span class="petunjuk-panah-bawah petunjuk-panah-hijau"></span>
+            </span>
+            <span class="material-symbols-outlined">+</span>
+        </button>
+
+        <div id="toastApp" class="toast-app"></div>
+    </div>
+
+    <!-- MODAL RIWAYAT -->
+    <div id="modalRiwayat" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Riwayat Perhitungan</h3>
+                <button class="close-btn" onclick="tutupRiwayat()">
+                    <span class="material-symbols-outlined">✕</span>
+                </button>
+            </div>
+            <div class="modal-body" id="listRiwayat">
+                <p class="empty-history">Belum ada riwayat perhitungan.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline-danger" onclick="hapusRiwayat()">
+                    <span class="material-symbols-outlined" style="font-size: 18px;">🗑</span>
+                    Hapus Riwayat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PENGATURAN -->
+    <div id="modalPengaturan" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Pengaturan Fitur</h3>
+                <button class="close-btn" onclick="tutupPengaturan()">
+                    <span class="material-symbols-outlined">✕</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <div class="setting-text">
+                        <span class="setting-title">Denyut Icon Barang Terpilih</span>
+                        <span class="setting-desc">Icon ceklis hijau berdenyut terus selama barang terpilih</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="togglePulse" onchange="ubahSettingPulse()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="setting-item-vertical">
+                    <span class="setting-title">Pilih Tema Warna</span>
+                    <span class="setting-desc">Pilihan warna yang nyaman di mata</span>
+                    <div class="theme-options">
+                        <button class="theme-circle active" style="background:#1d4fb8;" onclick="pilihTema('purple')" title="Biru JNE (Bawaan)"></button>
+                        <button class="theme-circle" style="background:#0061a4;" onclick="pilihTema('blue')" title="Ocean Blue"></button>
+                        <button class="theme-circle" style="background:#006e4c;" onclick="pilihTema('emerald')" title="Emerald Green"></button>
+                        <button class="theme-circle" style="background:#984061;" onclick="pilihTema('rose')" title="Rose Pink"></button>
+                        <button class="theme-circle" style="background:#6750a4;" onclick="pilihTema('ungu')" title="Ungu"></button>
+                        <button class="theme-circle" style="background:#ef6c00;" onclick="pilihTema('oranye')" title="Oranye"></button>
+                        <button class="theme-circle" style="background:#00838f;" onclick="pilihTema('toska')" title="Toska"></button>
+                        <button class="theme-circle" style="background:#c62828;" onclick="pilihTema('merah')" title="Merah"></button>
+                        <button class="theme-circle" style="background:#6d4c41;" onclick="pilihTema('cokelat')" title="Cokelat"></button>
+                    </div>
+                </div>
+                <div class="setting-item-vertical">
+                    <span class="setting-title">Gaya Kartu</span>
+                    <span class="setting-desc">Pilih tampilan kartu: timbul lembut atau datar</span>
+                    <div class="gaya-options">
+                        <button class="gaya-btn" id="btnGaya3d" onclick="pilihGayaKartu('3d')">3D Timbul</button>
+                        <button class="gaya-btn" id="btnGaya2d" onclick="pilihGayaKartu('2d')">2D Datar</button>
+                    </div>
+                </div>
+                <div class="setting-item-vertical">
+                    <span class="setting-title">Animasi Judul</span>
+                    <span class="setting-desc">Animasi teks nama aplikasi di header</span>
+                    <div class="gaya-options anim-options">
+                        <button class="gaya-btn anim-btn" id="anim-mati" onclick="pilihAnimasiJudul('mati')">Mati</button>
+                        <button class="gaya-btn anim-btn" id="anim-berjalan" onclick="pilihAnimasiJudul('berjalan')">Berjalan</button>
+                        <button class="gaya-btn anim-btn" id="anim-jatuh" onclick="pilihAnimasiJudul('jatuh')">Jatuh</button>
+                        <button class="gaya-btn anim-btn" id="anim-denyut" onclick="pilihAnimasiJudul('denyut')">Denyut</button>
+                        <button class="gaya-btn anim-btn" id="anim-slide" onclick="pilihAnimasiJudul('slide')">Slide Hapus</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="tutupPengaturan()">Selesai</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TAMBAH / EDIT SKU CUSTOM -->
+    <div id="modalSkuCustom" class="modal-overlay" style="z-index: 1100;">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="judulSkuCustom">Tambah SKU Custom</h3>
+                <button class="close-btn" onclick="tutupFormSkuCustom()">
+                    <span class="material-symbols-outlined">✕</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-field">
+                    <label class="form-label" for="inputSkuNama">Nama Barang</label>
+                    <input class="form-input" type="text" id="inputSkuNama"
+                        placeholder="Contoh: SUNLIGHT LIME WKB REF 6X(2X650G)" autocomplete="off">
+                </div>
+                <div class="form-field">
+                    <label class="form-label" id="labelKodeSku" for="inputSkuKode">Kode SKU <span class="form-hint">(opsional)</span></label>
+                    <input class="form-input" type="text" id="inputSkuKode"
+                        placeholder="Contoh: 69999521" inputmode="numeric" autocomplete="off">
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="inputSkuPalet">Isi Palet (Dus)</label>
+                    <input class="form-input" type="number" id="inputSkuPalet"
+                        placeholder="Contoh: 48" min="1" step="1" inputmode="numeric">
+                </div>
+                <p class="form-error" id="skuCustomError"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="tutupFormSkuCustom()">Batal</button>
+                <button class="btn-primary" id="tombolSimpanSku" onclick="simpanSkuCustom()">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL KELOLA SKU CUSTOM -->
+    <div id="modalKelolaSku" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Kelola SKU Custom</h3>
+                <button class="close-btn" onclick="tutupKelolaSku()">
+                    <span class="material-symbols-outlined">✕</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="kelola-catatan">
+                    SKU custom tersimpan otomatis di aplikasi. Tandai <b>Permanen</b> lalu ekspor
+                    supaya tetap ada setelah <b>Clear data</b> atau aplikasi di-uninstall.
+                </p>
+                <div id="daftarKelolaSku"></div>
+                <div class="kelola-divider"></div>
+                <h4 class="kelola-subjudul">Edit SKU Bawaan</h4>
+                <p class="kelola-catatan">
+                    Ubah <b>kode SKU</b>, <b>nama</b>, atau <b>isi palet</b> barang bawaan pabrik.
+                    Hasil edit tersimpan sebagai SKU custom penimpa — hapus editannya di daftar atas
+                    untuk mengembalikan bawaan asli.
+                </p>
+                <input class="form-input cari-bawaan-input" type="text" id="cariBawaanInput"
+                    placeholder="Ketik SKU atau nama barang bawaan..." autocomplete="off"
+                    oninput="renderCariBawaan()">
+                <div id="daftarBawaan"></div>
+            </div>
+            <div class="modal-footer kelola-footer">
+                <button class="btn-secondary" onclick="imporPermanenSku()" title="Muat SKU permanen dari file">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">📂</span>
+                    Impor
+                </button>
+                <button class="btn-secondary" onclick="eksporPermanenSku()" title="Simpan SKU ke file di luar aplikasi">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">📤</span>
+                    Ekspor
+                </button>
+                <button class="btn-secondary bahaya" onclick="konfirmasiHapusSemuaSku()" title="Hapus semua SKU custom">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">🗑</span>
+                    Hapus Semua
+                </button>
+                <button class="btn-primary" onclick="bukaFormSkuCustom()">Tambah</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL KONFIRMASI YA / TIDAK -->
+    <div id="modalKonfirmasi" class="modal-overlay" style="z-index: 1200;">
+        <div class="modal-card modal-konfirmasi">
+            <div class="modal-header">
+                <h3 id="judulKonfirmasi">Konfirmasi</h3>
+                <button class="close-btn" onclick="document.getElementById('tombolKonfirmasiBatal').click()">
+                    <span class="material-symbols-outlined">✕</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="pesanKonfirmasi" class="pesan-konfirmasi"></p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="tombolKonfirmasiBatal">Tidak</button>
+                <button class="btn-primary" id="tombolKonfirmasiYa">Ya</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let rinovaTimer;
+        function toggleDesignRinova() {
+            const container = document.getElementById('rinovaBadgeContainer');
+            container.classList.add('show');
+            clearTimeout(rinovaTimer);
+            rinovaTimer = setTimeout(() => {
+                container.classList.remove('show');
+            }, 1500);
+        }
+        function tutupDesignRinovaManual() {
+            clearTimeout(rinovaTimer);
+            document.getElementById('rinovaBadgeContainer').classList.remove('show');
+        }
+    </script>
+    <script>
+const databaseSKU = [
+  { sku: "69999520", nama: "MOLTO TRIKA JAPANESE PEACH 24X300ML", isiPalet: 60 },
+  { sku: "65684857", nama: "SUPERPELL ELEGANT RED SCH 96X23G", isiPalet: 192 },
+  { sku: "65684845", nama: "SUPERPELL GREEN SCH CRT DR 96X23G", isiPalet: 192 },
+  { sku: "65684851", nama: "SUPERPELL YELLOW SCH DR 96X23G", isiPalet: 192 },
+  { sku: "65744901", nama: "MOLTO AIO BLUE  LIQ 12X500ML", isiPalet: 50 },
+  { sku: "65460303", nama: "RINSO PURE PWD SCK 72X40G", isiPalet: 132 },
+  { sku: "65739631", nama: "RINSO PERFUME ESSENCE LIQ 6X1.45KG", isiPalet: 33 },
+  { sku: "65759749", nama: "RINSO ROSE FRESH LIQUID 96X40G", isiPalet: 88 },
+  { sku: "65759770", nama: "SUNLIGHT LIME WKB REF 72X120GR", isiPalet: 64 },
+  { sku: "65742744", nama: "RINSO PURE LIQUID 12X500G", isiPalet: 55 },
+  { sku: "65739664", nama: "RINSO MOLTO PERF ESSENCE PWDR 18X175G", isiPalet: 72 },
+  { sku: "65740430", nama: "RINSO MOLTO ROSE FRESH PWDR 12X345G", isiPalet: 64 },
+  { sku: "65740433", nama: "RINSO MOLTO ROSE PERFUME ESSENCE PWDR 12X345G", isiPalet: 64 },
+  { sku: "65739661", nama: "RINSO MOLTO ROSE FRESH PWDR 18X175G", isiPalet: 72 },
+  { sku: "65739598", nama: "RINSO ROSE FRESH LIQUID 12X500G", isiPalet: 55 },
+  { sku: "65739614", nama: "RINSO CLASSIC FRESH LIQUID 12X665G", isiPalet: 50 },
+  { sku: "69999519", nama: "MOLTO TRIKA BLUE 24X300ML", isiPalet: 60 },
+  { sku: "64848960", nama: "MOLTO SUPERPRO SOFTENER JC 3X4500ML", isiPalet: 22 },
+  { sku: "64871164", nama: "MOLTO PURE SCHT 384X11ML", isiPalet: 72 },
+  { sku: "64328796", nama: "MOLTO PURE LIQ 12X550ML", isiPalet: 50 },
+  { sku: "64871146", nama: "MOLTO PURE BLSM 240X18ML", isiPalet: 60 },
+  { sku: "65087059", nama: "MOLTO PURE BLOSSOM 6X1500ML", isiPalet: 33 },
+  { sku: "65243420", nama: "MOLTO PRFM SAPPHIRE LILY SCH 384X11ML", isiPalet: 72 },
+  { sku: "65243413", nama: "MOLTO PRFM GOLD ORCHID SCH 384X11ML", isiPalet: 72 },
+  { sku: "65243406", nama: "MOLTO PRFM DIAMOND ROSE SCH 384X11ML", isiPalet: 72 },
+  { sku: "64328794", nama: "MOLTO PEWANGI PURPLE LIQ 12X765ML", isiPalet: 50 },
+  { sku: "69598304", nama: "MOLTO PEWANGI PURPLE BLSM 6X1700ML", isiPalet: 33 },
+  { sku: "64328795", nama: "MOLTO PEWANGI PINK LIQ 12X765ML", isiPalet: 50 },
+  { sku: "69598303", nama: "MOLTO PEWANGI PINK BLSM 6X1700ML", isiPalet: 33 },
+  { sku: "69690307", nama: "MOLTO PEWANGI PINK BLSM 24X250ML", isiPalet: 60 },
+  { sku: "65077948", nama: "MOLTO PEWANGI GNTLE FRESH 6X1700ML", isiPalet: 33 },
+  { sku: "64986424", nama: "MOLTO PEWANGI GENTLE FRESH (12X765ML)", isiPalet: 50 },
+  { sku: "64328797", nama: "MOLTO PEWANGI BLUE LIQ 12X765ML", isiPalet: 50 },
+  { sku: "69598305", nama: "MOLTO PEWANGI BLUE BLSM 6X1700ML", isiPalet: 33 },
+  { sku: "69690313", nama: "MOLTO PEWANGI BLUE BLSM 24X250ML", isiPalet: 60 },
+  { sku: "64871160", nama: "MOLTO PERF BOOST KRBERRY SCH 384X11ML", isiPalet: 72 },
+  { sku: "64770296", nama: "MOLTO PERF BOOST KR SBERRY LIQ 12X650ML", isiPalet: 50 },
+  { sku: "64871162", nama: "MOLTO PERF BOOST JPN PEACH SCH 384X11ML", isiPalet: 72 },
+  { sku: "64770295", nama: "MOLTO PERF BOOST JPN PEACH LIQ 12X650ML", isiPalet: 50 },
+  { sku: "64770292", nama: "MOLTO PERF BOOST HIMALAYAN LIQ 12X650ML", isiPalet: 50 },
+  { sku: "64770293", nama: "MOLTO PERF BOOST CASABLANCA LIQ 12X650ML", isiPalet: 50 },
+  { sku: "64871166", nama: "MOLTO PERF BOOST SCH 384X11ML", isiPalet: 72 },
+  { sku: "64770291", nama: "MOLTO EDP PURPLE LIQ 12X650ML", isiPalet: 50 },
+  { sku: "64871152", nama: "MOLTO EDP PURPLE 240X18ML", isiPalet: 60 },
+  { sku: "62752715", nama: "MOLTO AIO PINK LIQ 12X550ML", isiPalet: 50 },
+  { sku: "64871150", nama: "MOLTO AIO PINK (6+1) PROMO 240X18ML", isiPalet: 48 },
+  { sku: "64871156", nama: "MOLTO AIO PINK (12+1) SCH 384X11ML", isiPalet: 60 },
+  { sku: "62752710", nama: "MOLTO AIO BLUE LIQ 12X550ML", isiPalet: 50 },
+  { sku: "65087058", nama: "MOLTO AIO BLUE BLOSSOM 6X1500ML", isiPalet: 33 },
+  { sku: "64871148", nama: "MOLTO AIO BLUE (6+1) PROMO 240X18ML", isiPalet: 48 },
+  { sku: "64871158", nama: "MOLTO AIO BLUE (12+1) SCH 384X11ML", isiPalet: 60 },
+  { sku: "64924059", nama: "LIFEBUOY DWL LEMON POUCH 12X660G", isiPalet: 40 },
+  { sku: "64924065", nama: "LIFEBUOY DWL BOTANITECH POUCH 6X1500G", isiPalet: 33 },
+  { sku: "64924053", nama: "LIFEBUOY DWL BOTANITECH POUCH 12X660G", isiPalet: 40 },
+  { sku: "65765919", nama: "LIFEBUOY DWL BOTANITECH PCH (48+24)X105G", isiPalet: 64 },
+  { sku: "67956844", nama: "JIF CREAM ORIGINAL 16X660G", isiPalet: 48 },
+  { sku: "64322472", nama: "CIF CREAM ORIGINAL BTL RETAIL 16X660G", isiPalet: 48 },
+  { sku: "64322474", nama: "CIF CREAM LEMON BTL RETAIL 16X660G", isiPalet: 48 },
+  { sku: "69980449", nama: "BUAVITA ORANGE RL 24X245ML", isiPalet: 119 },
+  { sku: "69980451", nama: "BUAVITA MANGO RL 24X245ML", isiPalet: 119 },
+  { sku: "69980447", nama: "BUAVITA LYCHEE RL 24X245ML", isiPalet: 119 },
+  { sku: "65232502", nama: "BUAVITA GUAVA RL3 24X245ML", isiPalet: 119 },
+  { sku: "69980448", nama: "BUAVITA APPLE RL 24X245ML", isiPalet: 119 },
+  { sku: "65241829", nama: "RINSO ROSE FRESH LIQ 96X20G", isiPalet: 192 },
+  { sku: "65623243", nama: "RINSO QUICK WASH PINK BOTTLE 12X650GR", isiPalet: 52 },
+  { sku: "65623236", nama: "RINSO QUICK WASH GREEN BOTTLE 12X650GR", isiPalet: 52 },
+  { sku: "64973857", nama: "RINSO PURE PWDR 18X195G", isiPalet: 72 },
+  { sku: "65081675", nama: "RINSO PURE PWD 6X1440G", isiPalet: 28 },
+  { sku: "65081735", nama: "RINSO PURE PWD 4X2750G", isiPalet: 27 },
+  { sku: "64956587", nama: "RINSO PURE LIQUID 6X1.5KG", isiPalet: 33 },
+  { sku: "64924082", nama: "RINSO PURE LIQUID 6+1 96X40G", isiPalet: 72 },
+  { sku: "64980518", nama: "RINSO PURE LIQD 12X700G", isiPalet: 50 },
+  { sku: "64982321", nama: "RINSO PURE LIQ 12X510G", isiPalet: 55 },
+  { sku: "68875942", nama: "RINSO PRO DTV LIQ 3X4500ML", isiPalet: 22 },
+  { sku: "65087926", nama: "RINSO PERFUME ESSENCE PWDR 12X700G", isiPalet: 40 },
+  { sku: "65081663", nama: "RINSO PERFUME ESSENCE PWD 6X1440G", isiPalet: 28 },
+  { sku: "65081759", nama: "RINSO PERFUME ESSENCE PWD 4X2750G", isiPalet: 27 },
+  { sku: "64956561", nama: "RINSO PERFUME ESSENCE LIQUID 6X1.5KG", isiPalet: 33 },
+  { sku: "64956524", nama: "RINSO PERFUME ESSENCE LIQUID 24X200G", isiPalet: 75 },
+  { sku: "64956523", nama: "RINSO PERFUME ESSENCE LIQUID 12X700G", isiPalet: 50 },
+  { sku: "64956590", nama: "RINSO PERFUME ESSENCE LIQUID 12X510G", isiPalet: 55 },
+  { sku: "65490987", nama: "RINSO PERFUME ESS LIQUID 3+1 (54+18)X80G", isiPalet: 50 },
+  { sku: "64924124", nama: "RINSO PERFUME ESS LIQUID 12+1 96X20G", isiPalet: 144 },
+  { sku: "65241834", nama: "RINSO PERFUME ESS LIQ 96X20G", isiPalet: 192 },
+  { sku: "64833861", nama: "RINSO MOLTO ROSE FRESH PWDR 18X195G", isiPalet: 72 },
+  { sku: "64833859", nama: "RINSO MOLTO ROSE FRESH PWDR 12X380G", isiPalet: 64 },
+  { sku: "64833858", nama: "RINSO MOLTO PERFUME ESSENCE PWDR 18X195G", isiPalet: 72 },
+  { sku: "64833854", nama: "RINSO MOLTO PERFUME ESSENCE PWDR 12X380G", isiPalet: 64 },
+  { sku: "64894940", nama: "RINSO MOLTO PERFUME ESS PWD SCK 72X40G", isiPalet: 132 },
+  { sku: "68806216", nama: "RINSO MATIC PWD FRONT LOAD NEW 6X1.8KG", isiPalet: 32 },
+  { sku: "64884248", nama: "RINSO MATIC LIQ TOP LOAD NEW 6X1.45KG", isiPalet: 33 },
+  { sku: "64884247", nama: "RINSO MATIC LIQ FRONT LOAD NEW 6X1.45KG", isiPalet: 33 },
+  { sku: "64956508", nama: "RINSO KOREAN STRAWBERRY LIQUID 12X510G", isiPalet: 55 },
+  { sku: "65087922", nama: "RINSO KOR STRAWBERRY PWDR 6X1440G", isiPalet: 28 },
+  { sku: "65087928", nama: "RINSO KOR STRAWBERRY PWDR 12X700G", isiPalet: 40 },
+  { sku: "65460299", nama: "RINSO JPN PEACH PWDR SCK 72X40G", isiPalet: 132 },
+  { sku: "65087924", nama: "RINSO JAPANESE PEACH PWDR 6X1440G", isiPalet: 28 },
+  { sku: "65087923", nama: "RINSO JAPANESE PEACH PWDR 4X2750G", isiPalet: 27 },
+  { sku: "65087927", nama: "RINSO JAPANESE PEACH PWDR 12X700G", isiPalet: 40 },
+  { sku: "65087921", nama: "RINSO JAPANESE PEACH PWDER 18X195G", isiPalet: 72 },
+  { sku: "64956581", nama: "RINSO JAPANESE PEACH LIQUID 6X1.5KG", isiPalet: 33 },
+  { sku: "64956535", nama: "RINSO JAPANESE PEACH LIQUID 12X700G", isiPalet: 50 },
+  { sku: "64956502", nama: "RINSO JAPANESE PEACH LIQUID 12X510G", isiPalet: 55 },
+  { sku: "64924088", nama: "RINSO CLASSIC LIQUID 6+1 96X40G", isiPalet: 72 },
+  { sku: "65087929", nama: "RINSO CLASSIC FRESH PWDR 12X700G", isiPalet: 40 },
+  { sku: "65081657", nama: "RINSO CLASSIC FRESH PWD 6X1440G", isiPalet: 28 },
+  { sku: "64956529", nama: "RINSO CLASSIC FRESH LIQUID 12X700G", isiPalet: 50 },
+  { sku: "64847688", nama: "RINSO ANTI NODA CLASSIC PWD SCK 72X40G", isiPalet: 132 },
+  { sku: "64833860", nama: "RINSO ANTI NODA CLASSIC POWDER 12X380G", isiPalet: 64 },
+  { sku: "65740436", nama: "RINSO ANTI NODA CLASSIC POWDER 12X345G", isiPalet: 64 },
+  { sku: "62712479", nama: "MOLTO TRIKA PURE 24X300ML", isiPalet: 60 },
+  { sku: "65686671", nama: "SUPERPELL GREEN CRT DR 24X280G", isiPalet: 60 },
+  { sku: "65686681", nama: "SUPERPELL GREEN CRT DR 12X760G", isiPalet: 40 },
+  { sku: "65223542", nama: "SUPERPELL GREEN CRT 72X100G", isiPalet: 42 },
+  { sku: "65223741", nama: "SUPERPELL GREEN CRT 6X1600G", isiPalet: 33 },
+  { sku: "65223554", nama: "SUPERPELL GREEN CRT 24X260G", isiPalet: 60 },
+  { sku: "65223548", nama: "SUPERPELL GREEN CRT 12X760G", isiPalet: 40 },
+  { sku: "65684887", nama: "SUPERPELL ELEGANT RED PCH 12X760G", isiPalet: 40 },
+  { sku: "65684863", nama: "SUPERPELL ELEGANT RED CRT 72X100G", isiPalet: 42 },
+  { sku: "65684869", nama: "SUPERPELL ELEGANT RED 24X280G", isiPalet: 60 },
+  { sku: "65223735", nama: "SUPERPELL ANTIBAC CITRUS PCH 12X500G", isiPalet: 65 },
+  { sku: "65223722", nama: "SUPERPELL SAKURA POUCH 12X740G", isiPalet: 40 },
+  { sku: "65741798", nama: "SUNLIGHT TROPICAL DREAM POUCH 24X250G", isiPalet: 75 },
+  { sku: "65741810", nama: "SUNLIGHT TROPICAL DREAM 12X600G", isiPalet: 48 },
+  { sku: "64924024", nama: "SUNLIGHT POWER HIGIENIS POUCH 12X600G", isiPalet: 48 },
+  { sku: "65590053", nama: "SUNLIGHT LIME WKB REF 72X100GR", isiPalet: 64 },
+  { sku: "64827420", nama: "SUNLIGHT LIME WKB REF 6X910GR", isiPalet: 44 },
+  { sku: "65081990", nama: "SUNLIGHT LIME WKB REF 24X370GR", isiPalet: 56 },
+  { sku: "65587848", nama: "SUNLIGHT LIME WKB POUCH RL 12X400GR", isiPalet: 65 },
+  { sku: "65081996", nama: "SUNLIGHT LIME WKB POUCH 12X650GR", isiPalet: 48 },
+  { sku: "64827400", nama: "SUNLIGHT LIME WKB PCH 6X1500GR", isiPalet: 33 },
+  { sku: "65590059", nama: "SUNLIGHT LIME WKB PCH 24X260G", isiPalet: 75 },
+  { sku: "65244756", nama: "SUNLIGHT LIME WKB BOTTLE 12X675 GR", isiPalet: 60 },
+  { sku: "65588729", nama: "SUNLIGHT LIME D4C WKB POUCH 12X610GR", isiPalet: 48 },
+  { sku: "64924201", nama: "SUNLIGHT KOREAN STRAWBERRY PCH 12X600G", isiPalet: 48 },
+  { sku: "64935710", nama: "SUNLIGHT EXTRA LEMBUT PCH 12X600G", isiPalet: 48 },
+  { sku: "65444599", nama: "SUNLIGHT BIOCARE NATURE POUCH RL 6X870G", isiPalet: 44 },
+  { sku: "64924175", nama: "SUNLIGHT BIOCARE NATURE POUCH 12X600G", isiPalet: 48 },
+  { sku: "65445203", nama: "SUNLIGHT BERRY & LIME DT BTL12X675GR", isiPalet: 60 },
+  { sku: "65445197", nama: "SUNLIGHT BERRY & LIME BOTTLE 12X675GR", isiPalet: 60 },
+  { sku: "64924030", nama: "SUNLIGHT ANTI BAU POUCH 12X600G", isiPalet: 48 },
+  { sku: "65636142", nama: "SUNLIGHT ANTI BAU PCH 6X1500G", isiPalet: 33 },
+  { sku: "64897528", nama: "RINSO SUPERPRO JERRYCAN 3X4500ML", isiPalet: 22 },
+  { sku: "64924094", nama: "RINSO ROYAL GOLD LIQUID 6+1 96X40G", isiPalet: 72 },
+  { sku: "64956599", nama: "RINSO ROYAL GOLD LIQUID 12X700G", isiPalet: 50 },
+  { sku: "64956496", nama: "RINSO ROYAL GOLD LIQUID 12X510G", isiPalet: 55 },
+  { sku: "64924112", nama: "RINSO ROYAL GOLD LIQUID 12+1 96X20G", isiPalet: 144 },
+  { sku: "65241824", nama: "RINSO ROYAL GOLD LIQ 96X20G", isiPalet: 192 },
+  { sku: "64989938", nama: "RINSO ROSE FRESH PWDR SCK 72X40G", isiPalet: 132 },
+  { sku: "65087925", nama: "RINSO ROSE FRESH PWDR 12X700G", isiPalet: 40 },
+  { sku: "65081669", nama: "RINSO ROSE FRESH PWD 6X1440G", isiPalet: 28 },
+  { sku: "65081753", nama: "RINSO ROSE FRESH PWD 4X2750G", isiPalet: 27 },
+  { sku: "64956555", nama: "RINSO ROSE FRESH LIQUID 6X1.5KG", isiPalet: 33 },
+  { sku: "64924100", nama: "RINSO ROSE FRESH LIQUID 6+1 96X40G", isiPalet: 72 },
+  { sku: "65739628", nama: "RINSO ROSE FRESH LIQUID 6X1.45KG", isiPalet: 33 },
+  { sku: "64956418", nama: "RINSO ROSE FRESH LIQUID 24X200G", isiPalet: 75 },
+  { sku: "64956517", nama: "RINSO ROSE FRESH LIQUID 12X700G", isiPalet: 50 },
+  { sku: "64956484", nama: "RINSO ROSE FRESH LIQUID 12X510G", isiPalet: 55 },
+  { sku: "64924118", nama: "RINSO ROSE FRESH LIQUID 12+1 96X20G", isiPalet: 144 },
+  { sku: "65491125", nama: "WIPOL SEREH&JERUK PCH POP 12X720G", isiPalet: 40 },
+  { sku: "65464843", nama: "WIPOL SEREH&JERUK PCH 12X720G", isiPalet: 40 },
+  { sku: "65085598", nama: "WIPOL PROBIOTIC POUCH 12X390G", isiPalet: 52 },
+  { sku: "65085590", nama: "WIPOL KARBOL LEMON RL 24X190G", isiPalet: 75 },
+  { sku: "65491123", nama: "WIPOL KARBOL LEMON PCH POP 12X720G", isiPalet: 40 },
+  { sku: "65464841", nama: "WIPOL KARBOL LEMON PCH 12X720G", isiPalet: 40 },
+  { sku: "65085578", nama: "WIPOL KARBOL CEMARA SCH MDF 144X36G", isiPalet: 48 },
+  { sku: "65491121", nama: "WIPOL KARBOL CEMARA PCH POP 12X720G", isiPalet: 40 },
+  { sku: "65634541", nama: "WIPOL KARBOL CEMARA PCH MDF 6X(2X720G)", isiPalet: 40 },
+  { sku: "65085582", nama: "WIPOL KARBOL CEMARA PCH MDF 24X390G", isiPalet: 28 },
+  { sku: "65464839", nama: "WIPOL KARBOL CEMARA PCH 12X720G", isiPalet: 40 },
+  { sku: "65085586", nama: "WIPOL KARBOL CEMARA MDF 6X1400G", isiPalet: 33 },
+  { sku: "65085580", nama: "WIPOL KARBOL CEMARA MDF 24X190G", isiPalet: 75 },
+  { sku: "65085602", nama: "WIPOL KARBOL CEMARA BTL MDF 24X430G", isiPalet: 40 },
+  { sku: "65085600", nama: "WIPOL KARBOL CEMARA BTL MDF 12X730G", isiPalet: 42 },
+  { sku: "65761138", nama: "WIP SUPERPELL GREEN CRT DR 6X(2X760G)", isiPalet: 40 },
+  { sku: "65709669", nama: "WIP SUNLIGHT LIME WKB PCH 6X(2X650G)", isiPalet: 48 },
+  { sku: "65647226", nama: "WIP SUNLIGHT LIME D4C WKB PCH 6X(2X610G)", isiPalet: 48 },
+  { sku: "65713783", nama: "WIP RINSO ROSE FRESH LIQUID 6X(2X510G)", isiPalet: 55 },
+  { sku: "65625193", nama: "WIP RINSO ROSE FRESH LIQUID 3X(2X1.5KG)", isiPalet: 33 },
+  { sku: "65597225", nama: "WIP RINSO ROSE FRESH D4C LIQ 4X(28X40G)", isiPalet: 72 },
+  { sku: "65625198", nama: "WIP RINSO PURE LIQUID 3X(2X1.5KG)", isiPalet: 33 },
+  { sku: "65713788", nama: "WIP RINSO PERFUME ESSENCE LIQ 6X(2X510G)", isiPalet: 55 },
+  { sku: "65629024", nama: "WIP MOLTO PURE BLSM 3X(2X1500ML)", isiPalet: 33 },
+  { sku: "65620752", nama: "WIP MOLTO PEWANGI PINK LIQ 6X(2X765ML)", isiPalet: 50 },
+  { sku: "65709466", nama: "WIP LIFEBUOY DWL BOTANITECH 6X(2X610G)", isiPalet: 40 },
+  { sku: "65085557", nama: "VIXAL KUAT SEGAR BKC PCH 24X180G", isiPalet: 45 },
+  { sku: "65085571", nama: "VIXAL KUAT HARUM HIJAU BTL 24X160G", isiPalet: 56 },
+  { sku: "65486548", nama: "VIXAL KUAT HARUM HIJAU BTL 12X700G", isiPalet: 51 },
+  { sku: "65085567", nama: "VIXAL KUAT HARUM HIJAU 12X360G", isiPalet: 100 },
+  { sku: "65540734", nama: "VIXAL EKSTRA KUAT BIRU BTL 6X(2X700G)", isiPalet: 51 },
+  { sku: "65085561", nama: "VIXAL EKSTRA KUAT BIRU BTL 24X160G", isiPalet: 56 },
+  { sku: "65486546", nama: "VIXAL EKSTRA KUAT BIRU BTL 12X700G", isiPalet: 51 },
+  { sku: "65085565", nama: "VIXAL EKSTRA KUAT BIRU BTL 12X360G", isiPalet: 100 },
+  { sku: "68883077", nama: "SUPERPELL YELLOW RL PCH 72X100ML", isiPalet: 42 },
+  { sku: "65223638", nama: "SUPERPELL YELLOW RL PCH 72X100G", isiPalet: 42 },
+  { sku: "65223647", nama: "SUPERPELL YELLOW RL PCH 24X260G", isiPalet: 60 },
+  { sku: "65223653", nama: "SUPERPELL YELLOW RL PCH 12X760G", isiPalet: 40 },
+  { sku: "65686687", nama: "SUPERPELL YELLOW PCH DR 12X760G", isiPalet: 40 },
+  { sku: "65684899", nama: "SUPERPELL YELLOW DR 6X1500G", isiPalet: 33 },
+  { sku: "65686693", nama: "SUPERPELL SAKURA POUCH DR 12X760G", isiPalet: 40 },
+  { sku: "65684905", nama: "SUPERPELL SAKURA DR 6X1500G", isiPalet: 33 },
+  { sku: "65223710", nama: "SUPERPELL RED RL PCH 12X760G", isiPalet: 40 },
+  { sku: "65223716", nama: "SUPERPELL PINK RL PCH 12X760G", isiPalet: 40 },
+  { sku: "65223665", nama: "SUPERPELL KOREAN STRAWBERRY PCH 72X100G", isiPalet: 42 },
+  { sku: "65223671", nama: "SUPERPELL KOREAN STRAWBERRY PCH 12X760G", isiPalet: 40 },
+  { sku: "65686661", nama: "SUPERPELL GREEN CRT DR 72X100G", isiPalet: 42 }
+];
+
+const STORAGE_KEY_SKU_CUSTOM = 'customSKU';
+const STORAGE_KEY_SKU_DIHAPUS = 'customSKUDihapus';
+let customSKU = [];
+let skuDihapus = [];
+let petaAsalBawaan = {};
+let modeFormSku = 'tambah';
+let skuSedangEdit = null;
+
+function ambilKolom(baris, daftarKunci) {
+    for (let i = 0; i < daftarKunci.length; i++) {
+        const nilai = baris[daftarKunci[i]];
+        if (nilai !== undefined && nilai !== null && nilai !== '') return nilai;
+    }
+    return undefined;
+}
+
+function normalisasiBarisSku(baris) {
+    if (!baris || typeof baris !== 'object') return null;
+    const nama = String(ambilKolom(baris, ['nama', 'namaBarang', 'item', 'produk']) || '').trim();
+    const sku = String(ambilKolom(baris, ['sku', 'kode', 'kodeSku', 'kodeBarang']) || '').trim();
+    const isiPalet = parseInt(ambilKolom(baris, ['isiPalet', 'isi', 'palet', 'cpp', 'isiDus']), 10);
+    if (!nama || !sku || isNaN(isiPalet) || isiPalet <= 0) return null;
+    return {
+        sku: sku,
+        nama: nama,
+        isiPalet: isiPalet,
+        custom: true,
+        permanen: Boolean(baris.permanen)
+    };
+}
+
+function bacaJsonAman(teks) {
+    if (typeof teks !== 'string' || teks.trim() === '') return null;
+    try {
+        return JSON.parse(teks);
+    } catch (err) {
+        return null;
+    }
+}
+
+function muatSkuCustom() {
+    const bridge = window.AndroidSku || null;
+    const bawaan = bacaJsonAman(bridge && typeof bridge.permanenBawaan === 'function'
+        ? bridge.permanenBawaan() : '[]') || {};
+    const tersimpan = bacaJsonAman(bridge && typeof bridge.bacaJson === 'function'
+        ? bridge.bacaJson() : '');
+
+    const lokalMentah = bacaJsonAman(localStorage.getItem(STORAGE_KEY_SKU_CUSTOM)) || [];
+    const lokal = Array.isArray(lokalMentah) ? lokalMentah : (lokalMentah.items || []);
+
+    const adaBerkasNative = Boolean(tersimpan) && !Array.isArray(tersimpan) &&
+        (Array.isArray(tersimpan.items) || Array.isArray(tersimpan.dihapus));
+    const sumberDihapus = adaBerkasNative
+        ? tersimpan.dihapus
+        : (bacaJsonAman(localStorage.getItem(STORAGE_KEY_SKU_DIHAPUS)) || []);
+
+    const daftarDihapus = []
+        .concat(Array.isArray(bawaan.dihapus) ? bawaan.dihapus : [])
+        .concat(Array.isArray(sumberDihapus) ? sumberDihapus : [])
+        .map(nilai => String(nilai).toLowerCase());
+    skuDihapus = daftarDihapus.filter((nilai, posisi) => daftarDihapus.indexOf(nilai) === posisi);
+
+    const sumberAsal = (tersimpan && !Array.isArray(tersimpan) && tersimpan.asal && typeof tersimpan.asal === 'object')
+        ? tersimpan.asal
+        : ((lokalMentah && !Array.isArray(lokalMentah) && lokalMentah.asal && typeof lokalMentah.asal === 'object')
+            ? lokalMentah.asal
+            : ((bawaan.asal && typeof bawaan.asal === 'object') ? bawaan.asal : {}));
+    petaAsalBawaan = {};
+    Object.keys(sumberAsal).forEach(kunci => {
+        const asal = String(sumberAsal[kunci] || '').trim();
+        if (asal) petaAsalBawaan[String(kunci).toLowerCase()] = asal;
+    });
+
+    const bawaanItems = Array.isArray(bawaan.items) ? bawaan.items : [];
+    let sumberItems = lokal;
+    if (Array.isArray(tersimpan)) {
+        sumberItems = tersimpan;
+    } else if (tersimpan && Array.isArray(tersimpan.items)) {
+        sumberItems = tersimpan.items;
+    }
+
+    const hasil = [];
+    const posisiTiap = {};
+    sumberItems.concat(bawaanItems).forEach(baris => {
+        const gambar = normalisasiBarisSku(baris);
+        if (!gambar) return;
+        const kunci = gambar.sku.toLowerCase();
+        if (skuDihapus.indexOf(kunci) >= 0 &&
+            !Object.prototype.hasOwnProperty.call(petaAsalBawaan, kunci)) return;
+        if (Object.prototype.hasOwnProperty.call(posisiTiap, kunci)) {
+            const lama = hasil[posisiTiap[kunci]];
+            hasil[posisiTiap[kunci]] = {
+                sku: gambar.sku,
+                nama: gambar.nama,
+                isiPalet: gambar.isiPalet,
+                custom: true,
+                permanen: Boolean(lama.permanen) || gambar.permanen
+            };
+        } else {
+            posisiTiap[kunci] = hasil.length;
+            hasil.push(gambar);
+        }
+    });
+
+    customSKU = hasil;
+    if (!tersimpan) simpanSkuCustomKeStorage();
+}
+
+function simpanSkuCustomKeStorage() {
+    const json = JSON.stringify({ items: customSKU, dihapus: skuDihapus, asal: petaAsalBawaan });
+    const bridge = window.AndroidSku || null;
+    if (bridge && typeof bridge.tulisJson === 'function') {
+        try {
+            bridge.tulisJson(json);
+        } catch (err) { }
+    }
+    localStorage.setItem(STORAGE_KEY_SKU_CUSTOM, json);
+    localStorage.setItem(STORAGE_KEY_SKU_DIHAPUS, JSON.stringify(skuDihapus));
+}
+
+function cariSkuCustom(sku) {
+    return customSKU.find(item => item.sku === sku) || null;
+}
+
+function tandaiSkuDihapus(sku) {
+    const kunci = String(sku).toLowerCase();
+    if (skuDihapus.indexOf(kunci) < 0) skuDihapus.push(kunci);
+}
+
+function daftarSku() {
+    const bawaanTerlihat = databaseSKU.filter(item =>
+        skuDihapus.indexOf(String(item.sku).toLowerCase()) < 0);
+    return bawaanTerlihat.concat(customSKU);
+}
+
+function perbaruiPenghitungSku() {
+    const penghitung = document.getElementById('skuCounter');
+    if (!penghitung) return;
+    const total = daftarSku().length;
+    const tambahan = customSKU.length;
+    penghitung.innerHTML = `${total.toLocaleString('id-ID')} SKU` +
+        (tambahan > 0 ? ` <span class="custom-total">(+${tambahan})</span>` : '');
+}
+
+function terapkanDenyutCheck() {
+    if (!successIcon) return;
+    const adaBarang = isiPaletTerpilih.value !== '0' || namaBarangTerpilih.value !== '';
+    successIcon.classList.toggle('denyut-terus', Boolean(config.pulseCheck) && adaBarang);
+}
+
+function bukaFormSkuCustom() {
+    modeFormSku = 'tambah';
+    skuSedangEdit = null;
+    judulFormSkuCustom('Tambah SKU Custom', 'Simpan');
+    document.getElementById('inputSkuNama').value = '';
+    document.getElementById('inputSkuKode').value = '';
+    setKodeSkuTidakBisaDiubah(false);
+    document.getElementById('inputSkuPalet').value = '';
+    tampilkanErrorSkuCustom('');
+    document.getElementById('modalSkuCustom').style.display = 'flex';
+}
+
+function bukaFormEditSku(sku) {
+    const item = cariSkuCustom(sku);
+    if (!item) return;
+    modeFormSku = 'edit';
+    skuSedangEdit = item.sku;
+    judulFormSkuCustom('Edit SKU Custom', 'Update');
+    document.getElementById('inputSkuKode').value = item.sku;
+    document.getElementById('inputSkuNama').value = item.nama;
+    document.getElementById('inputSkuPalet').value = item.isiPalet;
+    setKodeSkuTidakBisaDiubah(false);
+    tampilkanErrorSkuCustom('');
+    document.getElementById('modalSkuCustom').style.display = 'flex';
+}
+
+function bukaFormEditBawaan(sku) {
+    const item = databaseSKU.find(baris => baris.sku === sku);
+    if (!item) return;
+    modeFormSku = 'edit-bawaan';
+    skuSedangEdit = item.sku;
+    judulFormSkuCustom('Edit SKU Bawaan', 'Simpan Edit');
+    document.getElementById('inputSkuKode').value = item.sku;
+    document.getElementById('inputSkuNama').value = item.nama;
+    document.getElementById('inputSkuPalet').value = item.isiPalet;
+    setKodeSkuTidakBisaDiubah(false);
+    tampilkanErrorSkuCustom('');
+    document.getElementById('modalSkuCustom').style.display = 'flex';
+}
+
+function setKodeSkuTidakBisaDiubah(kunci) {
+    const inputKode = document.getElementById('inputSkuKode');
+    if (!inputKode) return;
+    inputKode.readOnly = kunci;
+    inputKode.style.opacity = kunci ? '0.7' : '';
+    const labelKode = document.getElementById('labelKodeSku');
+    if (labelKode) labelKode.style.display = kunci ? 'none' : '';
+}
+
+function judulFormSkuCustom(judul, teksTombol) {
+    const judulEl = document.getElementById('judulSkuCustom');
+    if (judulEl) judulEl.textContent = judul;
+    const tombolEl = document.getElementById('tombolSimpanSku');
+    if (tombolEl) tombolEl.textContent = teksTombol;
+}
+
+function tutupFormSkuCustom() {
+    document.getElementById('modalSkuCustom').style.display = 'none';
+    modeFormSku = 'tambah';
+    skuSedangEdit = null;
+}
+
+function tampilkanErrorSkuCustom(pesan) {
+    document.getElementById('skuCustomError').textContent = pesan;
+}
+
+function buatKodeSkuCustom() {
+    let nomor = customSKU.length + 1;
+    let kode = `CUST${String(nomor).padStart(3, '0')}`;
+    while (daftarSku().some(item => item.sku.toLowerCase() === kode.toLowerCase())) {
+        nomor += 1;
+        kode = `CUST${String(nomor).padStart(3, '0')}`;
+    }
+    return kode;
+}
+
+function simpanSkuCustom() {
+    const nama = document.getElementById('inputSkuNama').value.trim().replace(/\s+/g, ' ').toUpperCase();
+    const kode = document.getElementById('inputSkuKode').value.trim();
+    const palet = parseInt(document.getElementById('inputSkuPalet').value, 10);
+
+    if (!nama) {
+        tampilkanErrorSkuCustom('Nama barang wajib diisi.');
+        return;
+    }
+    if (isNaN(palet) || palet <= 0) {
+        tampilkanErrorSkuCustom('Isi palet harus berupa angka lebih dari 0.');
+        return;
+    }
+
+    const modeBawaan = modeFormSku === 'edit-bawaan';
+    const asalBawaan = modeBawaan ? skuSedangEdit : null;
+    const lama = (!modeBawaan && skuSedangEdit) ? cariSkuCustom(skuSedangEdit) : null;
+    const skuAkhir = modeBawaan
+        ? (kode || asalBawaan)
+        : (lama ? (kode || lama.sku) : (kode || buatKodeSkuCustom()));
+
+    const bentrokBawaan = databaseSKU.find(baris => baris.sku.toLowerCase() === skuAkhir.toLowerCase());
+    if (bentrokBawaan && !(modeBawaan && bentrokBawaan.sku === asalBawaan)) {
+        tampilkanErrorSkuCustom(`Kode SKU ${skuAkhir} sudah ada di database bawaan.`);
+        return;
+    }
+    const bentrokCustom = customSKU.find(item =>
+        item.sku.toLowerCase() === skuAkhir.toLowerCase() && (!lama || item.sku !== lama.sku));
+    if (bentrokCustom) {
+        tampilkanErrorSkuCustom(`Kode SKU ${skuAkhir} sudah dipakai SKU custom lain.`);
+        return;
+    }
+
+    const item = {
+        sku: skuAkhir,
+        nama: nama,
+        isiPalet: palet,
+        custom: true,
+        permanen: lama ? lama.permanen : false
+    };
+
+    if (lama) {
+        const kunciLama = lama.sku.toLowerCase();
+        const kunciBaru = skuAkhir.toLowerCase();
+        customSKU[customSKU.indexOf(lama)] = item;
+        if (kunciBaru !== kunciLama && Object.prototype.hasOwnProperty.call(petaAsalBawaan, kunciLama)) {
+            petaAsalBawaan[kunciBaru] = petaAsalBawaan[kunciLama];
+            delete petaAsalBawaan[kunciLama];
+        }
+        skuDihapus = skuDihapus.filter(kunci => kunci !== kunciLama && kunci !== kunciBaru);
+    } else {
+        customSKU.unshift(item);
+        skuDihapus = skuDihapus.filter(kunci => kunci !== skuAkhir.toLowerCase());
+    }
+
+    if (modeBawaan) {
+        petaAsalBawaan[skuAkhir.toLowerCase()] = asalBawaan;
+    }
+    Object.keys(petaAsalBawaan).forEach(kunci => tandaiSkuDihapus(petaAsalBawaan[kunci]));
+
+    simpanSkuCustomKeStorage();
+    perbaruiPenghitungSku();
+    tutupFormSkuCustom();
+    renderKelolaSku();
+    renderCariBawaan();
+    pilihBarang(item);
+    tampilkanToast(modeBawaan
+        ? 'SKU bawaan diperbarui (tersimpan sebagai penimpa).'
+        : (lama ? 'SKU custom diperbarui.' : 'SKU custom ditambahkan.'));
+}
+
+/* ==== KELOLA SKU CUSTOM ==== */
+
+function bukaKelolaSku() {
+    renderKelolaSku();
+    renderCariBawaan();
+    document.getElementById('modalKelolaSku').style.display = 'flex';
+}
+
+function renderCariBawaan() {
+    const wadah = document.getElementById('daftarBawaan');
+    if (!wadah) return;
+    const input = document.getElementById('cariBawaanInput');
+    const kata = input ? input.value.toLowerCase().trim() : '';
+    wadah.innerHTML = '';
+    if (!kata) {
+        const petunjuk = document.createElement('p');
+        petunjuk.className = 'kosong-kelola';
+        petunjuk.textContent = 'Ketik untuk mencari SKU bawaan yang mau diedit.';
+        wadah.appendChild(petunjuk);
+        return;
+    }
+    const cocok = databaseSKU.filter(item =>
+        skuDihapus.indexOf(String(item.sku).toLowerCase()) < 0 &&
+        (String(item.sku).toLowerCase().indexOf(kata) >= 0 ||
+            String(item.nama).toLowerCase().indexOf(kata) >= 0)
+    ).slice(0, 30);
+    if (cocok.length === 0) {
+        const kosong = document.createElement('p');
+        kosong.className = 'kosong-kelola';
+        kosong.textContent = 'Tidak ada SKU bawaan yang cocok.';
+        wadah.appendChild(kosong);
+        return;
+    }
+    cocok.forEach(item => wadah.appendChild(barisKelolaBawaan(item)));
+}
+
+function barisKelolaBawaan(item) {
+    const baris = document.createElement('div');
+    baris.className = 'baris-kelola';
+
+    const info = document.createElement('div');
+    info.className = 'baris-kelola-info';
+
+    const judul = document.createElement('div');
+    judul.className = 'baris-kelola-nama';
+    judul.textContent = item.nama;
+    info.appendChild(judul);
+
+    const meta = document.createElement('div');
+    meta.className = 'baris-kelola-meta';
+
+    const kode = document.createElement('span');
+    kode.className = 'kode-sku';
+    kode.textContent = item.sku;
+    meta.appendChild(kode);
+
+    const cpp = document.createElement('span');
+    cpp.textContent = `CPP: ${item.isiPalet}`;
+    meta.appendChild(cpp);
+
+    info.appendChild(meta);
+    baris.appendChild(info);
+
+    const aksi = document.createElement('div');
+    aksi.className = 'baris-kelola-aksi';
+    aksi.appendChild(tombolAksiSku('✏️', 'Edit SKU bawaan', () => bukaFormEditBawaan(item.sku)));
+    baris.appendChild(aksi);
+    return baris;
+}
+
+function tutupKelolaSku() {
+    document.getElementById('modalKelolaSku').style.display = 'none';
+}
+
+function renderKelolaSku() {
+    const wadah = document.getElementById('daftarKelolaSku');
+    if (!wadah) return;
+    wadah.innerHTML = '';
+    if (customSKU.length === 0) {
+        const kosong = document.createElement('p');
+        kosong.className = 'kosong-kelola';
+        kosong.textContent = 'Belum ada SKU custom. Tekan Tambah untuk membuat.';
+        wadah.appendChild(kosong);
+        return;
+    }
+    customSKU.forEach(item => wadah.appendChild(barisKelolaSku(item)));
+}
+
+function barisKelolaSku(item) {
+    const baris = document.createElement('div');
+    baris.className = 'baris-kelola';
+
+    const info = document.createElement('div');
+    info.className = 'baris-kelola-info';
+
+    const judul = document.createElement('div');
+    judul.className = 'baris-kelola-nama';
+    judul.textContent = item.nama;
+    info.appendChild(judul);
+
+    const meta = document.createElement('div');
+    meta.className = 'baris-kelola-meta';
+
+    const kode = document.createElement('span');
+    kode.className = 'kode-sku';
+    kode.textContent = item.sku;
+    meta.appendChild(kode);
+
+    const cpp = document.createElement('span');
+    cpp.textContent = `CPP: ${item.isiPalet}`;
+    meta.appendChild(cpp);
+
+    if (item.permanen) {
+        const badge = document.createElement('span');
+        badge.className = 'badge-permanen';
+        badge.textContent = 'Permanen';
+        meta.appendChild(badge);
+    }
+
+    info.appendChild(meta);
+    baris.appendChild(info);
+
+    const aksi = document.createElement('div');
+    aksi.className = 'baris-kelola-aksi';
+    aksi.appendChild(tombolAksiSku('✏️', 'Edit SKU', () => bukaFormEditSku(item.sku)));
+    aksi.appendChild(tombolAksiSku(
+        item.permanen ? '📂' : '📌',
+        item.permanen ? 'Batalkan status permanen' : 'Jadikan permanen',
+        () => alihStatusPermanen(item.sku)
+    ));
+    aksi.appendChild(tombolAksiSku('🗑', 'Hapus SKU', () => konfirmasiHapusSku(item.sku), true));
+    baris.appendChild(aksi);
+    return baris;
+}
+
+function tombolAksiSku(ikon, judul, aksi, bahaya) {
+    const tombol = document.createElement('button');
+    tombol.type = 'button';
+    tombol.className = bahaya ? 'tombol-aksi-sku bahaya' : 'tombol-aksi-sku';
+    tombol.title = judul;
+    tombol.setAttribute('aria-label', judul);
+    tombol.textContent = ikon;
+    tombol.onclick = aksi;
+    return tombol;
+}
+
+function alihStatusPermanen(sku) {
+    const item = cariSkuCustom(sku);
+    if (!item) return;
+    item.permanen = !item.permanen;
+    simpanSkuCustomKeStorage();
+    renderKelolaSku();
+    if (item.permanen) {
+        tampilkanToast(`${item.sku} ditandai permanen. Ekspor Permanen agar tidak hilang saat Clear data.`, 'sukses');
+    } else {
+        tampilkanToast(`${item.sku} tidak lagi ditandai permanen.`);
+    }
+}
+
+async function konfirmasiHapusSku(sku) {
+    const item = cariSkuCustom(sku);
+    if (!item) return;
+    const ya = await konfirmasiYaTidak({
+        judul: 'Hapus SKU Custom?',
+        pesan: `${item.sku} - ${item.nama} akan dihapus dari daftar.`,
+        labelYa: 'Ya, Hapus',
+        bahaya: true
+    });
+    if (!ya) return;
+    const index = customSKU.indexOf(item);
+    if (index >= 0) customSKU.splice(index, 1);
+    const kunci = String(sku).toLowerCase();
+    const asal = petaAsalBawaan[kunci];
+    if (asal) {
+        delete petaAsalBawaan[kunci];
+        skuDihapus = skuDihapus.filter(k => k !== String(asal).toLowerCase());
+        tampilkanToast(`${item.sku} dihapus. SKU bawaan ${asal} dikembalikan.`);
+    } else if (databaseSKU.some(baris => baris.sku.toLowerCase() === kunci)) {
+        skuDihapus = skuDihapus.filter(k => k !== kunci);
+    } else {
+        tandaiSkuDihapus(sku);
+    }
+    if (namaBarangTerpilih.value === `${item.sku} - ${item.nama}`) {
+        namaBarangTerpilih.value = '';
+        isiPaletTerpilih.value = '0';
+        selectedItemDisplay.textContent = 'Belum ada barang dipilih';
+        terapkanDenyutCheck();
+    }
+    simpanSkuCustomKeStorage();
+    perbaruiPenghitungSku();
+    renderKelolaSku();
+    renderCariBawaan();
+    if (!asal) tampilkanToast(`${item.sku} dihapus.`);
+}
+
+async function konfirmasiHapusSemuaSku() {
+    if (customSKU.length === 0) return;
+    const ya = await konfirmasiYaTidak({
+        judul: 'Hapus Semua SKU Custom?',
+        pesan: `Seluruh ${customSKU.length} SKU custom akan dihapus dan tidak bisa dikembalikan.`,
+        labelYa: 'Ya, Hapus Semua',
+        bahaya: true
+    });
+    if (!ya) return;
+    customSKU.slice().forEach(item => {
+        const kunci = item.sku.toLowerCase();
+        const asal = petaAsalBawaan[kunci];
+        if (asal) {
+            delete petaAsalBawaan[kunci];
+            skuDihapus = skuDihapus.filter(k => k !== String(asal).toLowerCase());
+        } else if (databaseSKU.some(baris => baris.sku.toLowerCase() === kunci)) {
+            skuDihapus = skuDihapus.filter(k => k !== kunci);
+        } else {
+            tandaiSkuDihapus(item.sku);
+        }
+    });
+    customSKU = [];
+    simpanSkuCustomKeStorage();
+    perbaruiPenghitungSku();
+    renderKelolaSku();
+    renderCariBawaan();
+    tampilkanToast('Semua SKU custom dihapus. SKU bawaan yang ditimpa dikembalikan.');
+}
+
+/* ==== KONFIRMASI YA / TIDAK ==== */
+
+function konfirmasiYaTidak(opsi) {
+    return new Promise(resolve => {
+        const modal = document.getElementById('modalKonfirmasi');
+        if (!modal) {
+            resolve(window.confirm(opsi.pesan || ''));
+            return;
+        }
+        const judulEl = document.getElementById('judulKonfirmasi');
+        const pesanEl = document.getElementById('pesanKonfirmasi');
+        const tombolYa = document.getElementById('tombolKonfirmasiYa');
+        const tombolBatal = document.getElementById('tombolKonfirmasiBatal');
+
+        judulEl.textContent = opsi.judul || 'Konfirmasi';
+        pesanEl.textContent = opsi.pesan || '';
+        tombolYa.textContent = opsi.labelYa || 'Ya';
+        tombolYa.className = opsi.bahaya ? 'btn-primary btn-bahaya' : 'btn-primary';
+        modal.style.display = 'flex';
+
+        const selesai = (jawaban) => {
+            modal.style.display = 'none';
+            tombolYa.onclick = null;
+            tombolBatal.onclick = null;
+            resolve(jawaban);
+        };
+        tombolYa.onclick = () => selesai(true);
+        tombolBatal.onclick = () => selesai(false);
+    });
+}
+
+/* ==== PERMANEN: EKSPOR & IMPOR ==== */
+
+function eksporPermanenSku() {
+    const bridge = window.AndroidSku || null;
+    if (!bridge || typeof bridge.eksporPermanen !== 'function') {
+        tampilkanToast('Ekspor permanen hanya tersedia di aplikasi Android.', 'gagal');
+        return;
+    }
+    if (customSKU.length === 0) {
+        tampilkanToast('Belum ada SKU custom untuk diekspor.', 'gagal');
+        return;
+    }
+    bridge.eksporPermanen(JSON.stringify({ items: customSKU, dihapus: skuDihapus, asal: petaAsalBawaan }, null, 2));
+}
+
+function imporPermanenSku() {
+    const bridge = window.AndroidSku || null;
+    if (!bridge || typeof bridge.imporPermanen !== 'function') {
+        tampilkanToast('Impor permanen hanya tersedia di aplikasi Android.', 'gagal');
+        return;
+    }
+    bridge.imporPermanen();
+}
+
+function ekstrakDaftarSku(mentah) {
+    const data = bacaJsonAman(mentah);
+    if (data === null) {
+        return { galat: 'File bukan JSON yang valid.' };
+    }
+
+    let kandidat = null;
+    if (Array.isArray(data)) {
+        kandidat = data;
+    } else if (data && typeof data === 'object') {
+        if (Array.isArray(data.items)) kandidat = data.items;
+        else if (Array.isArray(data.customSKU)) kandidat = data.customSKU;
+        else if (Array.isArray(data.sku)) kandidat = data.sku;
+        else if (Array.isArray(data.daftar)) kandidat = data.daftar;
+        else {
+            const kunci = Object.keys(data);
+            return {
+                galat: 'Struktur file tidak dikenali. Kunci yang ditemukan: ' +
+                    (kunci.length ? kunci.join(', ') : '(tidak ada)') +
+                    '. Gunakan {"items":[{"sku":"...","nama":"...","isiPalet":48}]}.'
+            };
+        }
+    }
+
+    const sah = kandidat.map(normalisasiBarisSku).filter(Boolean);
+    if (sah.length === 0) {
+        return {
+            galat: 'Tidak ada baris SKU yang valid. Setiap baris butuh nama, kode SKU, dan isi palet lebih dari 0.'
+        };
+    }
+
+    const dihapus = (data && typeof data === 'object' && Array.isArray(data.dihapus)) ? data.dihapus : [];
+    const asal = (data && typeof data === 'object' && data.asal && typeof data.asal === 'object' && !Array.isArray(data.asal)) ? data.asal : {};
+    return { items: sah, dihapus: dihapus, asal: asal, dibuang: kandidat.length - sah.length };
+}
+
+function prosesImporPermanen(mentah) {
+    const bridge = window.AndroidSku || null;
+    if (!bridge || typeof bridge.tulisImpor !== 'function') {
+        tampilkanToast('Impor permanen hanya tersedia di aplikasi Android.', 'gagal');
+        return;
+    }
+
+    const hasil = ekstrakDaftarSku(mentah);
+    if (hasil.galat) {
+        tampilkanToast(hasil.galat, 'gagal');
+        return;
+    }
+
+    localStorage.removeItem(STORAGE_KEY_SKU_DIHAPUS);
+    bridge.tulisImpor(JSON.stringify({ items: hasil.items, dihapus: hasil.dihapus, asal: hasil.asal || {} }));
+}
+
+window.terimaHasilSku = function(aksi, sukses, pesan, isi) {
+    if (aksi === 'impor-baca') {
+        prosesImporPermanen(isi || '');
+        return;
+    }
+    if (aksi === 'ekspor-mulai') {
+        tampilkanToast(pesan, 'sukses');
+        return;
+    }
+    if (aksi === 'impor') {
+        if (!sukses) {
+            tampilkanToast(pesan || 'Impor gagal.', 'gagal');
+            return;
+        }
+        muatSkuCustom();
+        perbaruiPenghitungSku();
+        renderKelolaSku();
+        const jumlah = customSKU.length;
+        if (jumlah === 0) {
+            tampilkanToast('Data masuk, tapi tidak ada SKU yang bisa dipakai.', 'gagal');
+            return;
+        }
+        tampilkanToast(`SKU permanen dimuat: ${jumlah} SKU.`, 'sukses');
+        return;
+    }
+    if (pesan) tampilkanToast(pesan, sukses ? 'sukses' : 'gagal');
+};
+
+/* ==== TOAST ==== */
+
+let timerToast;
+function tampilkanToast(pesan, jenis) {
+    const toast = document.getElementById('toastApp');
+    if (!toast) return;
+    toast.textContent = pesan;
+    toast.className = 'toast-app tampil' + (jenis ? ' ' + jenis : '');
+    clearTimeout(timerToast);
+    timerToast = setTimeout(() => { toast.className = 'toast-app'; }, 3400);
+}
+
+let riwayatPerhitungan = [];
+let proRiwayatList = [];
+let modeHasilTerpilih = 1;
+
+let config = {
+    pulseCheck: true,
+    themeColor: 'purple',
+    gayaKartu: '3d',
+    animasiJudul: 'mati',
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    muatSkuCustom();
+
+    const currentThemeMode = localStorage.getItem('themeMode');
+    if (currentThemeMode === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+    perbaruiIconTema();
+
+    const savedConfig = localStorage.getItem('appConfig');
+    if (savedConfig) {
+        config = JSON.parse(savedConfig);
+    }
+
+    const togglePulse = document.getElementById('togglePulse');
+    if (togglePulse) togglePulse.checked = config.pulseCheck;
+    pilihTema(config.themeColor, false);
+    terapkanGayaKartu();
+    terapkanAnimasiJudul();
+    pasangSembunyiNavKetik();
+    pasangSplash();
+
+    hitungSusunanDus();
+    renderProRiwayat();
+    perbaruiPenghitungSku();
+    terapkanDenyutCheck();
+    sinkronStatusBar();
+    pasangSwipeTab();
+});
+
+function pasangSwipeTab() {
+    const kontainer = document.querySelector('.mobile-container');
+    if (!kontainer) return;
+    kontainer.addEventListener('touchstart', swipeMulai, { passive: true });
+    kontainer.addEventListener('touchmove', swipeGeser, { passive: false });
+    kontainer.addEventListener('touchend', swipeSelesai, { passive: true });
+    kontainer.addEventListener('touchcancel', () => { swipeAwal = null; swipeBerjalan = false; }, { passive: true });
+}
+
+function toggleDarkMode() {
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    localStorage.setItem('themeMode', isDarkMode ? 'dark' : 'light');
+    perbaruiIconTema();
+}
+
+function perbaruiIconTema() {
+    const themeIcon = document.getElementById('themeIcon');
+    if (themeIcon) {
+        themeIcon.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀';
+    }
+    sinkronStatusBar();
+}
+
+function sinkronStatusBar() {
+    try {
+        const bridge = window.AndroidTheme;
+        if (!bridge || typeof bridge.applyTheme !== 'function') return;
+        const isDark = document.body.classList.contains('dark-mode');
+        const header = document.getElementById('headerBg');
+        const sumberWarna = header || document.body;
+        const background = getComputedStyle(sumberWarna).backgroundColor;
+        bridge.applyTheme(isDark, background);
+    } catch (e) { }
+}
+
+function bukaPengaturan() {
+    document.getElementById('modalPengaturan').style.display = 'flex';
+}
+
+function tutupPengaturan() {
+    document.getElementById('modalPengaturan').style.display = 'none';
+}
+
+function ubahSettingPulse() {
+    config.pulseCheck = document.getElementById('togglePulse').checked;
+    terapkanDenyutCheck();
+    simpanConfig();
+}
+
+
+function pilihTema(namaTema, simpan = true) {
+    if (namaTema === 'custom') namaTema = 'purple';
+    config.themeColor = namaTema;
+    if (namaTema === 'purple') {
+        document.body.removeAttribute('data-theme');
+    } else {
+        document.body.setAttribute('data-theme', namaTema);
+    }
+    document.querySelectorAll('.theme-circle').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(namaTema)) {
+            btn.classList.add('active');
+        }
+    });
+    if (simpan) simpanConfig();
+    sinkronStatusBar();
+}
+
+
+function pilihGayaKartu(mode) {
+    config.gayaKartu = mode === '2d' ? '2d' : '3d';
+    terapkanGayaKartu();
+    simpanConfig();
+}
+
+function terapkanGayaKartu() {
+    const mode = config.gayaKartu === '2d' ? '2d' : '3d';
+    document.body.classList.toggle('gaya-3d', mode === '3d');
+    const btn3d = document.getElementById('btnGaya3d');
+    const btn2d = document.getElementById('btnGaya2d');
+    if (btn3d) btn3d.classList.toggle('active', mode === '3d');
+    if (btn2d) btn2d.classList.toggle('active', mode === '2d');
+}
+
+const JUDUL_TEKS = 'Kalkulator SKU';
+
+function pilihAnimasiJudul(mode) {
+    config.animasiJudul = mode;
+    terapkanAnimasiJudul();
+    simpanConfig();
+}
+
+function terapkanAnimasiJudul() {
+    const el = document.getElementById('judulTeks');
+    const judul = document.getElementById('judulAplikasi');
+    if (!el) return;
+    const mode = ['berjalan', 'jatuh', 'denyut', 'slide'].includes(config.animasiJudul) ? config.animasiJudul : 'mati';
+    el.className = '';
+    if (judul) judul.classList.toggle('mode-berjalan', mode === 'berjalan');
+    if (mode === 'berjalan' || mode === 'denyut') {
+        el.textContent = JUDUL_TEKS;
+        el.classList.add(mode === 'berjalan' ? 'animasi-berjalan' : 'animasi-denyut');
+    } else if (mode === 'jatuh' || mode === 'slide') {
+        el.innerHTML = '';
+        el.classList.add(mode === 'jatuh' ? 'animasi-jatuh' : 'animasi-slidehapus');
+        JUDUL_TEKS.split('').forEach((huruf, index) => {
+            const span = document.createElement('span');
+            span.textContent = huruf === ' ' ? '\u00A0' : huruf;
+            span.style.animationDelay = `${index * 0.1}s`;
+            el.appendChild(span);
+        });
+    } else {
+        el.textContent = JUDUL_TEKS;
+    }
+    document.querySelectorAll('.anim-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.id === 'anim-' + mode);
+    });
+}
+
+function pasangSembunyiNavKetik() {
+    const kontainer = document.querySelector('.mobile-container');
+    if (!kontainer) return;
+    const sedangIsiKolom = () => {
+        const aktif = document.activeElement;
+        return !!(aktif && aktif.closest && aktif.closest('input, textarea, select'));
+    };
+    document.addEventListener('focusin', (e) => {
+        if (e.target.closest && e.target.closest('input, textarea, select')) {
+            kontainer.classList.add('sedang-ketik');
+        }
+    });
+    document.addEventListener('focusout', () => {
+        setTimeout(() => {
+            if (!sedangIsiKolom()) kontainer.classList.remove('sedang-ketik');
+        }, 80);
+    });
+    if (window.visualViewport) {
+        const tinggiAwal = window.visualViewport.height;
+        window.visualViewport.addEventListener('resize', () => {
+            if (window.visualViewport.height < tinggiAwal * 0.78) {
+                kontainer.classList.add('sedang-ketik');
+            } else if (!sedangIsiKolom()) {
+                kontainer.classList.remove('sedang-ketik');
+            }
+        });
+    }
+}
+
+function pasangSplash() {
+    const splash = document.getElementById('splashLayar');
+    if (!splash) return;
+    const judul = document.getElementById('splashJudul');
+    if (judul) {
+        const teks = judul.textContent;
+        judul.innerHTML = '';
+        teks.split('').forEach((huruf, index) => {
+            const span = document.createElement('span');
+            span.textContent = huruf === ' ' ? '\u00A0' : huruf;
+            span.style.animationDelay = `${0.15 + index * 0.05}s`;
+            judul.appendChild(span);
+        });
+    }
+    let sudahTutup = false;
+    const tutup = () => {
+        if (sudahTutup) return;
+        sudahTutup = true;
+        splash.classList.add('selesai');
+        setTimeout(() => splash.remove(), 550);
+    };
+    setTimeout(tutup, 1500);
+    splash.addEventListener('click', tutup);
+}
+
+function simpanConfig() {
+    localStorage.setItem('appConfig', JSON.stringify(config));
+}
+
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+const selectedItemDisplay = document.getElementById('selectedItemDisplay');
+const isiPaletTerpilih = document.getElementById('isiPaletTerpilih');
+const namaBarangTerpilih = document.getElementById('namaBarangTerpilih');
+const paletManual = document.getElementById('paletManual');
+const successIcon = document.getElementById('successIcon');
+
+const hasilPencarianAktif = [];
+let indeksSorot = -1;
+
+function totalDusTerisi() {
+    const input = document.getElementById('totalDus');
+    const nilai = input ? parseInt(input.value, 10) : NaN;
+    return isNaN(nilai) || nilai <= 0 ? null : nilai;
+}
+
+function cariSkuSesuai(keyword) {
+    const kunci = keyword.toLowerCase().trim();
+    if (!kunci) return [];
+
+    const angka = /^[0-9]+$/.test(kunci) ? parseInt(kunci, 10) : null;
+    const totalDus = totalDusTerisi();
+
+    const hasil = [];
+    daftarSku().forEach(item => {
+        const skuTeks = String(item.sku).toLowerCase();
+        const namaTeks = String(item.nama).toLowerCase();
+        const isi = parseInt(item.isiPalet, 10) || 0;
+        const adaTotal = (totalDus !== null && isi > 0);
+        const totalPalet = adaTotal ? Math.floor(totalDus / isi) : null;
+        const sisa = adaTotal ? totalDus % isi : null;
+
+        const cocokSku = skuTeks.indexOf(kunci) >= 0;
+        const cocokNama = namaTeks.indexOf(kunci) >= 0;
+        const cocokIsi = angka !== null && isi === angka;
+        const cocokPalet = angka !== null && totalPalet === angka;
+
+        // Angka murni berarti pengguna mencari jumlah dus atau palet,
+        // jadi cocokkan angka eksak lebih dulu daripada teks yang kebetulan cocok.
+        let skor = -1;
+        if (angka !== null) {
+            if (cocokIsi) skor = 0;
+            else if (cocokPalet) skor = 1;
+            else if (cocokSku) skor = 2;
+            else if (cocokNama) skor = 3;
+        } else {
+            if (cocokSku) skor = 0;
+            else if (cocokNama) skor = 1;
+        }
+        if (skor < 0) return;
+
+        hasil.push({
+            item: item,
+            skor: skor,
+            isi: isi,
+            totalPalet: totalPalet,
+            sisa: sisa,
+            cocokkanAngka: (skor === 0 || skor === 1)
+        });
+    });
+
+    return hasil.sort((a, b) => a.skor - b.skor);
+}
+
+function buatChipHasil(teks, kelas) {
+    const chip = document.createElement('span');
+    chip.className = 'dropdown-chip' + (kelas ? ' ' + kelas : '');
+    chip.textContent = teks;
+    return chip;
+}
+
+function barisHasilPencarian(entri, posisi) {
+    const item = entri.item;
+    const baris = document.createElement('div');
+    baris.className = 'dropdown-item' + (entri.cocokkanAngka ? ' cocok-angka' : '');
+    baris.dataset.posisi = String(posisi);
+    baris.setAttribute('role', 'option');
+
+    const atas = document.createElement('div');
+    atas.className = 'dropdown-item-top';
+
+    const sku = document.createElement('span');
+    sku.className = 'dropdown-sku';
+    sku.textContent = item.sku;
+    atas.appendChild(sku);
+
+    atas.appendChild(buatChipHasil(`${entri.isi} dus`, 'chip-dus'));
+    if (entri.totalPalet !== null) {
+        atas.appendChild(buatChipHasil(`${entri.totalPalet} palet`, 'chip-palet'));
+    }
+    if (item.custom) {
+        const badge = document.createElement('span');
+        badge.className = 'custom-badge';
+        badge.textContent = 'Custom';
+        atas.appendChild(badge);
+    }
+
+    const nama = document.createElement('div');
+    nama.className = 'dropdown-nama';
+    nama.textContent = item.nama;
+
+    baris.appendChild(atas);
+    baris.appendChild(nama);
+
+    if (entri.sisa !== null && entri.sisa > 0) {
+        const sisa = document.createElement('div');
+        sisa.className = 'dropdown-sisa';
+        sisa.textContent = `sisa ${entri.sisa} dus (1 palet kurang)`;
+        baris.appendChild(sisa);
+    }
+
+    baris.onclick = () => pilihBarang(item);
+    return baris;
+}
+
+function renderHasilPencarian(hasil) {
+    hasilPencarianAktif.length = 0;
+    for (let i = 0; i < hasil.length; i++) hasilPencarianAktif.push(hasil[i].item);
+    indeksSorot = -1;
+    searchResults.innerHTML = '';
+
+    if (hasil.length === 0) {
+        const kosong = document.createElement('div');
+        kosong.className = 'dropdown-kosong';
+        kosong.textContent = 'Tidak ada barang yang cocok.';
+        searchResults.appendChild(kosong);
+        return;
+    }
+
+    const judul = document.createElement('div');
+    judul.className = 'dropdown-judul';
+    judul.textContent = `${hasil.length} barang ditemukan`;
+    searchResults.appendChild(judul);
+
+    hasil.forEach((entri, posisi) => searchResults.appendChild(barisHasilPencarian(entri, posisi)));
+}
+
+function segarkanPencarian() {
+    const keyword = searchInput.value.trim();
+    if (keyword.length === 0) {
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'none';
+        return;
+    }
+    renderHasilPencarian(cariSkuSesuai(keyword));
+    searchResults.style.display = 'block';
+}
+
+function sorotBaris(baris) {
+    const semua = searchResults.querySelectorAll('.dropdown-item');
+    for (let i = 0; i < semua.length; i++) {
+        semua[i].classList.remove('disorot');
+    }
+    if (baris) baris.classList.add('disorot');
+    if (baris && baris.scrollIntoView) {
+        baris.scrollIntoView({ block: 'nearest' });
+    }
+}
+
+function geserSorot(arah) {
+    if (hasilPencarianAktif.length === 0) return;
+    const semua = searchResults.querySelectorAll('.dropdown-item');
+    if (semua.length === 0) return;
+    indeksSorot += arah;
+    if (indeksSorot < 0) indeksSorot = semua.length - 1;
+    if (indeksSorot >= semua.length) indeksSorot = 0;
+    sorotBaris(semua[indeksSorot]);
+}
+
+if (searchInput) {
+    searchInput.addEventListener('input', function() {
+        searchResults.innerHTML = '';
+        searchResults.style.display = 'none';
+        namaBarangTerpilih.value = '';
+        isiPaletTerpilih.value = '0';
+        selectedItemDisplay.textContent = 'Belum ada barang dipilih';
+        terapkanDenyutCheck();
+        segarkanPencarian();
+    });
+
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            geserSorot(1);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            geserSorot(-1);
+        } else if (e.key === 'Enter') {
+            const semua = searchResults.querySelectorAll('.dropdown-item');
+            if (semua.length === 0) return;
+            e.preventDefault();
+            const posisi = indeksSorot >= 0 ? indeksSorot : 0;
+            pilihBarang(hasilPencarianAktif[posisi]);
+        } else if (e.key === 'Escape') {
+            searchResults.innerHTML = '';
+            searchResults.style.display = 'none';
+        }
+    });
+
+    searchInput.addEventListener('focus', function() {
+        if (searchInput.value.trim().length > 0) segarkanPencarian();
+    });
+}
+
+const inputTotalDus = document.getElementById('totalDus');
+if (inputTotalDus) {
+    inputTotalDus.addEventListener('input', function() {
+        if (searchResults && searchResults.style.display === 'block') segarkanPencarian();
+    });
+}
+
+function tutupDropdownPencarian() {
+    if (!searchResults) return;
+    searchResults.style.display = 'none';
+    searchResults.innerHTML = '';
+    hasilPencarianAktif.length = 0;
+    indeksSorot = -1;
+}
+
+function pilihBarang(item) {
+    const namaUtuh = `${item.sku} - ${item.nama}`;
+    selectedItemDisplay.textContent = namaUtuh;
+    isiPaletTerpilih.value = item.isiPalet;
+    namaBarangTerpilih.value = namaUtuh;
+    searchInput.value = '';
+    tutupDropdownPencarian();
+    if (config.pulseCheck && successIcon) {
+        successIcon.classList.remove('pulse-active');
+        void successIcon.offsetWidth;
+        successIcon.classList.add('pulse-active');
+    }
+    terapkanDenyutCheck();
+    isiOtomatisPalet();
+}
+
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-container')) tutupDropdownPencarian();
+});
+
+function isiOtomatisPalet() {
+    const valIsiPalet = parseInt(document.getElementById('isiPaletTerpilih').value);
+    if (valIsiPalet > 0) {
+        paletManual.value = valIsiPalet;
+    }
+}
+
+function buatKembangApi(e) {
+    try {
+        let x = (e && e.clientX) || (e && e.touches && e.touches[0].clientX) || window.innerWidth / 2;
+        let y = (e && e.clientY) || (e && e.touches && e.touches[0].clientY) || window.innerHeight / 2;
+        const computedStyle = getComputedStyle(document.body);
+        const primaryColor = computedStyle.getPropertyValue('--md-sys-color-primary').trim();
+        const successColor = computedStyle.getPropertyValue('--md-sys-color-success').trim() || '#2e7d32';
+        const warnaWarni = [primaryColor, successColor, '#ffcc00', '#ff3b30'];
+        for (let i = 0; i < 18; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 8 + 4;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.backgroundColor = warnaWarni[Math.floor(Math.random() * warnaWarni.length)];
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = 40 + Math.random() * 60;
+            particle.style.setProperty('--tx', `${Math.cos(angle) * velocity}px`);
+            particle.style.setProperty('--ty', `${Math.sin(angle) * velocity}px`);
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 600);
+        }
+    } catch (err) {
+        console.log("Animasi:", err);
+    }
+}
+
+function hitungPalet(event) {
+    buatKembangApi(event);
+    const totalDus = parseInt(document.getElementById('totalDus').value);
+    const isiPerPalet = parseInt(paletManual.value);
+    const hasilArea = document.getElementById('hasilArea');
+    const hasilReceh = document.getElementById('hasilReceh');
+    let namaBarang = namaBarangTerpilih.value;
+    if (!namaBarang) {
+        namaBarang = searchInput.value || "Input Manual Tanpa Nama";
+    }
+    if (isNaN(totalDus) || isNaN(isiPerPalet) || totalDus < 0 || isiPerPalet <= 0) {
+        document.getElementById('hasilTotal').textContent = "-";
+        document.getElementById('hasilPalet').textContent = "-";
+        hasilReceh.textContent = "⚠ Isi Total Dus & Isi Palet!";
+        hasilArea.style.display = 'block';
+        return;
+    }
+    const paletPenuh = Math.floor(totalDus / isiPerPalet);
+    const sisaReceh = totalDus % isiPerPalet;
+    document.getElementById('hasilTotal').textContent = `${totalDus} Dus`;
+    document.getElementById('hasilPalet').textContent = `${paletPenuh} Palet`;
+    hasilReceh.textContent = `${sisaReceh} Dus`;
+    hasilArea.style.animation = 'none';
+    hasilArea.style.display = 'block';
+    setTimeout(() => {
+        hasilArea.style.animation = 'popIn 0.4s ease-out forwards';
+    }, 10);
+    simpanRiwayat(namaBarang, totalDus, paletPenuh, sisaReceh);
+}
+
+function setModeHasil(mode) {
+    modeHasilTerpilih = mode;
+    hitungSusunanDus();
+}
+
+function hitungSusunanDus() {
+    const totalInput = document.getElementById('totalDusBaru');
+    const blkInput = document.getElementById('blkDusBaru');
+    const smpInput = document.getElementById('smpDusBaru');
+    const hasilElem = document.getElementById('hasilDusBaru');
+    if (!totalInput || !blkInput || !smpInput || !hasilElem) return;
+
+    const total = parseFloat(totalInput.value) || 0;
+    const blk = parseFloat(blkInput.value) || 0;
+    const smp = parseFloat(smpInput.value) || 0;
+
+    if (total <= 0 || blk <= 0 || smp <= 0) {
+        hasilElem.innerHTML = `<div style="text-align:center; padding:15px; color:var(--md-sys-color-error, #d32f2f); font-weight:bold;">Isi semua angka target & ukuran dengan benar!</div>`;
+        return;
+    }
+
+    const perPaletFull = blk * smp;
+    const fullTumpuk = Math.floor(total / perPaletFull);
+    const dusFull = fullTumpuk * perPaletFull;
+    const sisa = total - dusFull;
+
+    const barisPenuh = Math.floor(sisa / blk);
+    const sisaEceran = sisa % blk;
+    const totalOT = (fullTumpuk + 1) * perPaletFull;
+    const ot = totalOT - total;
+
+    // ================= TEKS HASIL =================
+    let teksNumpang = "";
+    let teksRingkasan = "";
+    let teksRumus = "";
+    const dusNumpangFull = barisPenuh * blk;
+
+    if (sisa === 0) {
+        teksNumpang = "0 Dus";
+        teksRingkasan = `${fullTumpuk} Tumpuk Full (Pas)`;
+        teksRumus = `Pas: ${fullTumpuk} × (${blk} × ${smp}) = <b>${total} Pas</b>`;
+    } else if (sisaEceran === 0) {
+        teksNumpang = `${barisPenuh} Baris (${dusNumpangFull} Dus)`;
+        teksRingkasan = `${fullTumpuk} Tumpuk Full + Numpang ${barisPenuh} Baris`;
+        teksRumus = `Pas: ${fullTumpuk} × (${blk} × ${smp}) = ${dusFull} + (${barisPenuh} × ${blk}) = <b>${total} Pas</b>`;
+    } else if (barisPenuh === 0) {
+        teksNumpang = `${sisaEceran} Dus`;
+        teksRingkasan = `${fullTumpuk} Tumpuk Full + Sisa ${sisaEceran} Dus`;
+        teksRumus = `Pas: ${fullTumpuk} × (${blk} × ${smp}) = ${dusFull} + ${sisaEceran} = <b>${total} Pas</b>`;
+    } else {
+        teksNumpang = `${barisPenuh} Baris (${dusNumpangFull} Dus) + ${sisaEceran} Dus`;
+        teksRingkasan = `${fullTumpuk} Tumpuk Full + Numpang ${barisPenuh} Baris + Sisa ${sisaEceran} Dus`;
+        teksRumus = `Pas: ${fullTumpuk} × (${blk} × ${smp}) = ${dusFull} + (${barisPenuh} × ${blk}) + ${sisaEceran} = <b>${total} Pas</b>`;
+    }
+
+    hasilElem.innerHTML = `
+        <div class="summary-dus">
+            <div class="sum-item-dus">
+                <small>1 Tumpuk Full</small>
+                <span class="dim">${blk} × ${smp}</span>
+                <span class="val">${perPaletFull}</span>
+            </div>
+            <div class="sum-item-dus">
+                <small>Full</small>
+                <span class="dim">${fullTumpuk} tumpuk</span>
+                <span class="val">${dusFull}</span>
+            </div>
+            <div class="sum-item-dus sisa">
+                <small>Sisa</small>
+                <span class="dim">${sisa} dus</span>
+                <span class="val">${sisa}</span>
+            </div>
+        </div>
+
+        <div class="pulse-wrap-dus">
+            <div class="pulse-dus green">
+                <small>Tumpuk Full</small>
+                <b>${fullTumpuk}</b>
+            </div>
+            <div class="pulse-dus blue">
+                <small>Numpang</small>
+                <b>${teksNumpang}</b>
+            </div>
+        </div>
+
+        <div class="big-hasil-dus" style="line-height: 1.5;">
+            ${teksRingkasan}
+        </div>
+
+        <div class="detail-dus">
+            ${teksRumus}<br><br>
+            <b>OT (Over Target):</b> ${fullTumpuk + 1} × ${perPaletFull} = ${totalOT} (OT ${ot})
+        </div>
+    `;
+
+    renderSimulasi4D(fullTumpuk, sisa, blk, smp);
+}
+
+function simpanRiwayat(nama, total, palet, sisa) {
+    const waktu = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    riwayatPerhitungan.unshift({ nama, total, palet, sisa, waktu });
+    renderRiwayat();
+}
+
+function renderRiwayat() {
+    const listRiwayat = document.getElementById('listRiwayat');
+    if (!listRiwayat) return;
+    listRiwayat.innerHTML = '';
+    if (riwayatPerhitungan.length === 0) {
+        listRiwayat.innerHTML = '<p class="empty-history">Belum ada riwayat perhitungan.</p>';
+        return;
+    }
+    riwayatPerhitungan.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'history-item';
+        div.innerHTML = `
+            <div class="history-title">${item.nama}</div>
+            <div class="history-meta">
+                <span>Total: ${item.total} dus</span>
+                <span class="history-badge">${item.waktu}</span>
+            </div>
+            <div class="history-results">
+                <span>Full: <b>${item.palet} Palet</b></span>
+                <span class="history-sisa">Sisa: ${item.sisa} Dus</span>
+            </div>
+        `;
+        listRiwayat.appendChild(div);
+    });
+}
+
+function bukaRiwayat() {
+    document.getElementById('modalRiwayat').style.display = 'flex';
+}
+
+function tutupRiwayat() {
+    document.getElementById('modalRiwayat').style.display = 'none';
+}
+
+async function hapusRiwayat() {
+    const ya = await konfirmasiYaTidak({
+        judul: 'Hapus Riwayat?',
+        pesan: 'Semua riwayat perhitungan akan dihapus. SKU custom tidak ikut terhapus.',
+        labelYa: 'Ya, Hapus',
+        bahaya: true
+    });
+    if (!ya) return;
+    riwayatPerhitungan = [];
+    renderRiwayat();
+    tutupRiwayat();
+    tampilkanToast('Riwayat perhitungan dihapus.');
+}
+
+let calcExpression = "0";
+
+function kembangkanNotasiEksponensial(teks) {
+    return String(teks).replace(/(\d+(?:\.\d+)?)[eE]([+-]?\d+)/g, (match, angka, pangkat) => {
+        const eksponen = parseInt(pangkat, 10);
+        const negatif = angka.charAt(0) === '-';
+        const [bulat, pecahan = ''] = angka.replace('-', '').split('.');
+        let hasil;
+        if (eksponen >= 0) {
+            const geser = eksponen - pecahan.length;
+            hasil = geser >= 0
+                ? bulat + pecahan + '0'.repeat(geser)
+                : bulat.slice(0, bulat.length + geser) + '.' + bulat.slice(bulat.length + geser) + pecahan;
+        } else {
+            hasil = '0.' + '0'.repeat(Math.max(0, -eksponen - 1)) + bulat + pecahan;
+        }
+        return (negatif ? '-' : '') + hasil;
+    });
+}
+
+function formatTampilanKalkulator(expr) {
+    if (!expr) return "0";
+    if (expr === "Error" || (isNaN(expr) && !/[+\-×÷]/.test(expr))) return expr;
+    const dimekarkan = kembangkanNotasiEksponensial(expr);
+    return dimekarkan.replace(/(\d+)(\.\d+)?/g, (match, intPart, decPart) => {
+        if (!intPart) return match;
+        let formattedInt = parseInt(intPart, 10).toLocaleString('id-ID');
+        return formattedInt + (decPart ? decPart : '');
+    });
+}
+
+function sesuaikanUkuranLayarPro(display) {
+    const panjang = display.value.length;
+    let ukuran = 40;
+    if (panjang > 9) ukuran = 32;
+    if (panjang > 13) ukuran = 26;
+    if (panjang > 18) ukuran = 21;
+    if (panjang > 24) ukuran = 17;
+    display.style.setProperty('--pro-angka', ukuran + 'px');
+    display.scrollLeft = display.scrollWidth;
+}
+
+function updateProDisplay() {
+    const display = document.getElementById('calcProDisplay');
+    if (display) {
+        display.value = formatTampilanKalkulator(calcExpression);
+        sesuaikanUkuranLayarPro(display);
+    }
+}
+
+function proAppend(val) {
+    const operators = ['+', '-', '×', '÷'];
+    const lastChar = calcExpression.slice(-1);
+    if (calcExpression === "0" && val !== '.' && !operators.includes(val)) {
+        calcExpression = val;
+    } else if (calcExpression === "0" && val === '.') {
+        calcExpression = "0.";
+    } else {
+        if (operators.includes(val)) {
+            if (operators.includes(lastChar)) {
+                calcExpression = calcExpression.slice(0, -1) + val;
+            } else {
+                calcExpression += val;
+            }
+        } else if (val === '.') {
+            let parts = calcExpression.split(/[\+\-×÷]/);
+            let currentSegment = parts[parts.length - 1];
+            if (!currentSegment.includes('.')) {
+                calcExpression += val;
+            }
+        } else {
+            if (calcExpression === "0") {
+                calcExpression = val;
+            } else {
+                calcExpression += val;
+            }
+        }
+    }
+    updateProDisplay();
+}
+
+function proClear() {
+    calcExpression = "0";
+    const subDisplay = document.getElementById('calcProSubDisplay');
+    if (subDisplay) subDisplay.textContent = "";
+    updateProDisplay();
+}
+
+function proDel() {
+    if (calcExpression.length > 1) {
+        calcExpression = calcExpression.slice(0, -1);
+    } else {
+        calcExpression = "0";
+    }
+    updateProDisplay();
+}
+
+function proCalculate() {
+    const display = document.getElementById('calcProDisplay');
+    const subDisplay = document.getElementById('calcProSubDisplay');
+    if (!display) return;
+    try {
+        const operators = ['+', '-', '×', '÷'];
+        if (operators.includes(calcExpression.slice(-1))) {
+            return;
+        }
+        let sanitizedExpr = calcExpression.replace(/×/g, '*').replace(/÷/g, '/');
+        let result = eval(sanitizedExpr);
+        if (!isFinite(result)) {
+            throw new Error("Tidak dapat membagi dengan nol");
+        }
+        if (!Number.isInteger(result)) {
+            result = parseFloat(result.toFixed(10));
+        }
+        if (subDisplay) subDisplay.textContent = formatTampilanKalkulator(calcExpression) + " =";
+        simpanProRiwayat(formatTampilanKalkulator(calcExpression), formatTampilanKalkulator(String(result)));
+        calcExpression = String(result);
+        updateProDisplay();
+    } catch (error) {
+        calcExpression = "Error";
+        updateProDisplay();
+        setTimeout(() => { calcExpression = "0"; updateProDisplay(); }, 1200);
+    }
+}
+
+function simpanProRiwayat(expr, hasil) {
+    const waktu = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    proRiwayatList.unshift({ expr, hasil, waktu });
+    renderProRiwayat();
+}
+
+function renderProRiwayat() {
+    const container = document.getElementById('proRiwayatListContainer');
+    if (!container) return;
+    if (proRiwayatList.length === 0) {
+        container.innerHTML = '<div style="text-align: center; opacity: 0.6; padding: 8px;">Belum ada riwayat perhitungan</div>';
+        return;
+    }
+    let html = '';
+    proRiwayatList.forEach((item) => {
+        html += `
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 4px 0;">
+                <span>${item.expr} = <b>${item.hasil}</b></span>
+                <span style="font-size: 10px; opacity: 0.5;">${item.waktu}</span>
+            </div>
+        `;
+    });
+    container.innerHTML = html;
+}
+
+async function proClearRiwayat() {
+    if (proRiwayatList.length === 0) return;
+    const ya = await konfirmasiYaTidak({
+        judul: 'Hapus Riwayat Kalkulasi?',
+        pesan: 'Seluruh riwayat Kalkulator Pro akan dihapus.',
+        labelYa: 'Ya, Hapus',
+        bahaya: true
+    });
+    if (!ya) return;
+    proRiwayatList = [];
+    renderProRiwayat();
+    tampilkanToast('Riwayat kalkulasi dihapus.');
+}
+
+function bukaRiwayatProfilModal() {
+    bukaRiwayat();
+}
+
+const DAFTAR_TAB = ['tabKalkulator', 'tabEksplor', 'tabProfil'];
+const AMBANG_SWIPE = 55;
+const KECEPATAN_SWIPE_MIN = 0.35;
+let swipeAwal = null;
+let swipeBerjalan = false;
+
+function indexTabAktif() {
+    const index = DAFTAR_TAB.findIndex(id => {
+        const el = document.getElementById(id);
+        return el && el.classList.contains('active');
+    });
+    return index < 0 ? 0 : index;
+}
+
+function modalTerbuka() {
+    return Array.from(document.querySelectorAll('.modal-overlay')).some(m => getComputedStyle(m).display !== 'none');
+}
+
+function swipeMulai(e) {
+    if (e.touches.length !== 1 || modalTerbuka()) {
+        swipeAwal = null;
+        return;
+    }
+    const t = e.touches[0];
+    swipeAwal = { x: t.clientX, y: t.clientY, waktu: Date.now() };
+    swipeBerjalan = false;
+}
+
+function swipeGeser(e) {
+    if (!swipeAwal || e.touches.length !== 1) return;
+    const t = e.touches[0];
+    const dx = t.clientX - swipeAwal.x;
+    const dy = t.clientY - swipeAwal.y;
+    if (Math.abs(dx) > Math.abs(dy) * 1.2 && Math.abs(dx) > 12) {
+        swipeBerjalan = true;
+        if (e.cancelable) e.preventDefault();
+    }
+}
+
+function swipeSelesai(e) {
+    if (!swipeAwal) return;
+    const t = (e.changedTouches && e.changedTouches[0]) || null;
+    const awal = swipeAwal;
+    swipeAwal = null;
+    if (!t || !swipeBerjalan) return;
+
+    const dx = t.clientX - awal.x;
+    const dy = t.clientY - awal.y;
+    if (Math.abs(dy) > Math.abs(dx)) return;
+
+    const durasi = Math.max(Date.now() - awal.waktu, 1);
+    const jarak = Math.abs(dx);
+    const cepat = jarak / durasi > KECEPATAN_SWIPE_MIN;
+    if (jarak < AMBANG_SWIPE && !(cepat && jarak > 25)) return;
+
+    pindahTabOtomatis(dx < 0 ? 1 : -1);
+}
+
+function pindahTabOtomatis(arah) {
+    const target = Math.min(Math.max(indexTabAktif() + arah, 0), DAFTAR_TAB.length - 1);
+    if (target === indexTabAktif()) return;
+    const navItem = document.querySelectorAll('.bottom-nav .nav-item')[target];
+    gantiTab(navItem, DAFTAR_TAB[target], arah > 0 ? 1 : -1);
+}
+
+function gantiTab(element, idTab, arah = 0) {
+    const kontainer = document.querySelector('.mobile-container') || document.body;
+    kontainer.classList.add('swipe-aktif');
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active', 'anim-dari-kanan', 'anim-dari-kiri');
+    });
+    document.querySelectorAll('.bottom-nav .nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    const targetTab = document.getElementById(idTab);
+    if (targetTab) {
+        if (arah !== 0) targetTab.classList.add(arah > 0 ? 'anim-dari-kanan' : 'anim-dari-kiri');
+        targetTab.classList.add('active');
+    }
+    if (element) element.classList.add('active');
+    const fabSku = document.getElementById('fabTambahSku');
+    if (fabSku) fabSku.classList.toggle('tersembunyi', idTab !== 'tabKalkulator');
+    if (idTab === 'tabEksplor') {
+        hitungSusunanDus();
+    }
+}
+
+function renderSimulasi4D(fullTumpuk, sisa, blk, smp) {
+    const container = document.getElementById('simulasi4dContainer');
+    const infoLabel = document.getElementById('simulasiInfoLabel');
+    if (!container) return;
+    container.innerHTML = '';
+    const maxVisualTumpuk = Math.min(fullTumpuk, 4);
+    const adaLebihTumpuk = fullTumpuk > 4;
+    if (adaLebihTumpuk) {
+        if (infoLabel) infoLabel.textContent = `Menampilkan 4 dari ${fullTumpuk} Tumpuk Full`;
+    } else {
+        if (infoLabel) infoLabel.textContent = `${fullTumpuk} Tumpuk Full + ${sisa} Eceran`;
+    }
+    const wrapper3d = document.createElement('div');
+    wrapper3d.className = 'simulasi-palet-3d';
+    for (let t = 0; t < maxVisualTumpuk; t++) {
+        const tumpukDiv = document.createElement('div');
+        tumpukDiv.style.display = 'flex';
+        tumpukDiv.style.flexDirection = 'column';
+        tumpukDiv.style.gap = '1px';
+        tumpukDiv.style.marginBottom = '6px';
+        tumpukDiv.style.animationDelay = `${t * 0.15}s`;
+        let barisMini = Math.min(smp, 3);
+        let kolomMini = Math.min(blk, 5);
+        for (let b = 0; b < barisMini; b++) {
+            const rowDiv = document.createElement('div');
+            rowDiv.className = 'simulasi-layer';
+            for (let k = 0; k < kolomMini; k++) {
+                const box = document.createElement('div');
+                box.className = 'simulasi-box';
+                rowDiv.appendChild(box);
+            }
+            tumpukDiv.appendChild(rowDiv);
+        }
+        wrapper3d.appendChild(tumpukDiv);
+    }
+    if (sisa > 0) {
+        const sisaDiv = document.createElement('div');
+        sisaDiv.style.display = 'flex';
+        sisaDiv.style.gap = '2px';
+        sisaDiv.style.marginTop = '4px';
+        sisaDiv.style.flexWrap = 'wrap';
+        sisaDiv.style.justifyContent = 'center';
+        sisaDiv.style.maxWidth = '100px';
+        let jumlahKotakSisa = Math.min(sisa, 12);
+        for (let s = 0; s < jumlahKotakSisa; s++) {
+            const box = document.createElement('div');
+            box.className = 'simulasi-box sisa-box';
+            box.title = `Sisa: ${sisa} dus`;
+            sisaDiv.appendChild(box);
+        }
+        wrapper3d.appendChild(sisaDiv);
+    }
+    if (fullTumpuk === 0 && sisa === 0) {
+        container.innerHTML = '<div style="font-size: 11px; opacity: 0.6; align-self: center;">Masukkan target dus untuk melihat simulasi 4D</div>';
+        return;
+    }
+    container.appendChild(wrapper3d);
+}
+</script>
+</body>
+</html>
