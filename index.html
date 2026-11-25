@@ -8,6 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Kalkulator SKU">
     <meta name="theme-color" content="#0f766e">
+    <link rel="manifest" href="./manifest.webmanifest">
     <link rel="apple-touch-icon" href="https://muse.ai/files/1408806072308155/1657979405591088/s6bdtwr0vhg10qk8f7xs3fzw/app-icon.png">
     <link rel="icon" type="image/png" href="https://muse.ai/files/1408806072308155/1657979405591088/s6bdtwr0vhg10qk8f7xs3fzw/app-icon.png">
     <title>Kalkulator SKU</title>
@@ -4573,6 +4574,13 @@ function renderSimulasi4D(fullTumpuk, sisa, blk, smp) {
     }
     container.appendChild(wrapper3d);
 }
+</script>
+<script>
+    if ('serviceWorker'  in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('./sw.js');
+        });
+    }
 </script>
 </body>
 </html>
